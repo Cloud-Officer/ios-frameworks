@@ -1,0 +1,99 @@
+---
+name: Build
+'on':
+  pull_request:
+    types:
+    - opened
+    - edited
+    - reopened
+    - synchronize
+  push:
+  release:
+    types:
+    - created
+env:
+  PYTHON-CACHE: pip
+  PYTHON-VERSION: '3.1'
+  RUBY-BUNDLER-CACHE: 'true'
+  RUBY-VERSION: '3.2'
+  XCODE-VERSION: '14.1'
+jobs:
+  variables:
+    name: Prepare Variables
+    runs-on: ubuntu-22.04
+    outputs:
+      BUILD_NAME: "${{steps.variables.outputs.BUILD_NAME}}"
+      BUILD_VERSION: "${{steps.variables.outputs.BUILD_VERSION}}"
+      COMMIT_MESSAGE: "${{steps.variables.outputs.COMMIT_MESSAGE}}"
+      MODIFIED_GITHUB_RUN_NUMBER: "${{steps.variables.outputs.MODIFIED_GITHUB_RUN_NUMBER}}"
+      DEPLOY_ON_BETA: "${{steps.variables.outputs.DEPLOY_ON_BETA}}"
+      DEPLOY_ON_RC: "${{steps.variables.outputs.DEPLOY_ON_RC}}"
+      DEPLOY_ON_PROD: "${{steps.variables.outputs.DEPLOY_ON_PROD}}"
+      DEPLOY_MACOS: "${{steps.variables.outputs.DEPLOY_MACOS}}"
+      DEPLOY_TVOS: "${{steps.variables.outputs.DEPLOY_TVOS}}"
+      SKIP_LICENSES: "${{steps.variables.outputs.SKIP_LICENSES}}"
+      SKIP_TESTS: "${{steps.variables.outputs.SKIP_TESTS}}"
+      UPDATE_PACKAGES: "${{steps.variables.outputs.UPDATE_PACKAGES}}"
+      LINTERS: "${{steps.variables.outputs.LINTERS}}"
+    steps:
+    - name: Prepare variables
+      id: variables
+      uses: cloud-officer/ci-actions/variables@master
+      with:
+        ssh-key: "${{secrets.SSH_KEY}}"
+  actionlint:
+    name: Github Actions Linter
+    runs-on: ubuntu-22.04
+    needs:
+    - variables
+    if: "${{github.event_name == 'pull_request' || github.event_name == 'pull_request_target'}}"
+    steps:
+    - name: Actionlint
+      id: actionlint
+      uses: cloud-officer/ci-actions/linters/actionlint@master
+      with:
+        linters: "${{needs.variables.outputs.LINTERS}}"
+        ssh-key: "${{secrets.SSH_KEY}}"
+        github_token: "${{secrets.GITHUB_TOKEN}}"
+  markdownlint:
+    name: Markdown Linter
+    runs-on: ubuntu-22.04
+    needs:
+    - variables
+    if: "${{github.event_name == 'pull_request' || github.event_name == 'pull_request_target'}}"
+    steps:
+    - name: Markdownlint
+      id: markdownlint
+      uses: cloud-officer/ci-actions/linters/markdownlint@master
+      with:
+        linters: "${{needs.variables.outputs.LINTERS}}"
+        ssh-key: "${{secrets.SSH_KEY}}"
+        github_token: "${{secrets.GITHUB_TOKEN}}"
+  shellcheck:
+    name: Shell Scripts Linter
+    runs-on: ubuntu-22.04
+    needs:
+    - variables
+    if: "${{github.event_name == 'pull_request' || github.event_name == 'pull_request_target'}}"
+    steps:
+    - name: ShellCheck
+      id: shellcheck
+      uses: cloud-officer/ci-actions/linters/shellcheck@master
+      with:
+        linters: "${{needs.variables.outputs.LINTERS}}"
+        ssh-key: "${{secrets.SSH_KEY}}"
+        github_token: "${{secrets.GITHUB_TOKEN}}"
+  yamllint:
+    name: YAML Linter
+    runs-on: ubuntu-22.04
+    needs:
+    - variables
+    if: "${{github.event_name == 'pull_request' || github.event_name == 'pull_request_target'}}"
+    steps:
+    - name: Yamllint
+      id: yamllint
+      uses: cloud-officer/ci-actions/linters/yamllint@master
+      with:
+        linters: "${{needs.variables.outputs.LINTERS}}"
+        ssh-key: "${{secrets.SSH_KEY}}"
+        github_token: "${{secrets.GITHUB_TOKEN}}"

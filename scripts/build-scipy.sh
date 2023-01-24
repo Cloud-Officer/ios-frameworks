@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
-source "${SCRIPTS_DIR}/environment.sh"
+# shellcheck source=/dev/null
+. "${SCRIPTS_DIR}/environment.sh"
 
 export LDFLAGS="-L'${FRAMEWORKS_DIR}'"
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
+docker stop flang || true
+docker rm flang  || true
 docker run -d --name flang -v "${BASE_DIR}/fortran-ios/share:/root/host" -v /Users:/Users -v /var/folders:/var/folders -it ubuntu
 
 cd "${SOURCES_DIR}/${3}"
@@ -23,3 +26,6 @@ cp -f scipy/misc/*.dat build/lib*/scipy/misc
 make_frameworks.py "${1}"
 cp build/temp*iphoneos*/*.a "${FRAMEWORKS_DIR}"
 cp -r build/lib*/* "${SITE_PACKAGES_DIR}/${1}"
+
+docker stop flang
+docker rm flang
