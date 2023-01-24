@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
 # settings
 
@@ -27,19 +27,20 @@ scipy=("scipy" "v1.10.0" "scipy")
 statsmodels=("statsmodels" "v0.13.5" "statsmodels")
 
 packages=(
-#  numpy[@]
-#  cython[@]
-#  gensim[@]
-#  pandas[@]
-#  pyemd[@]
-#  pywavelets[@]
-#  scikit_image[@]
-#  scikit_learn[@]
+  numpy[@]
+  cython[@]
+  gensim[@]
+  pandas[@]
+  pyemd[@]
+  pywavelets[@]
+  scikit_image[@]
+  scikit_learn[@]
   scipy[@]
-#  statsmodels[@]
+  statsmodels[@]
 )
 
-export BASE_DIR="$(pwd)"
+BASE_DIR="$(pwd)"
+export BASE_DIR
 export FRAMEWORKS_DIR="${BASE_DIR}/frameworks"
 export PYTHON_DIR="${BASE_DIR}/python3.10"
 export SCRIPTS_DIR="${BASE_DIR}/scripts"
@@ -71,7 +72,7 @@ CONDA_ENV_DIR="python-ios"
 set +x
 eval "$(command conda 'shell.bash' 'hook')"
 conda activate base
-rm -rf "$(conda info | grep 'envs directories' | awk -F ':' '{ print $2 }' | sed -e 's/^[[:space:]]*//')/${CONDA_ENV_DIR}"
+rm -rf "$(conda info | grep 'envs directories' | awk -F ':' '{ print $2 }' | sed -e 's/^[[:space:]]*//')/${CONDA_ENV_DIR:?}"
 conda create -y --name "${CONDA_ENV_DIR}" python==3.10.8
 conda activate "${CONDA_ENV_DIR}"
 set -x
@@ -92,6 +93,8 @@ curl --silent --location "https://github.com/beeware/Python-Apple-support/releas
 tar -xzf python-apple-support.tar.gz
 mv python-stdlib "${PYTHON_DIR}"
 mv Python.xcframework "${FRAMEWORKS_DIR}"
+cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64/Headers"
+cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64_x86_64-simulator/Headers"
 mv VERSIONS "${VERSION_FILE}"
 echo "---------------------" >> "${VERSION_FILE}"
 popd
@@ -101,10 +104,10 @@ mkdir "${PYTHON_DIR}/site-packages"
 # pip packages
 
 pushd "${SITE_PACKAGES_DIR}"
-python3.10 -m pip install --no-deps -r "${BASE_DIR}/.site-packages/requirements.txt" -t .
+python3.10 -m pip install --no-deps -r "${BASE_DIR}/site-packages/requirements.txt" -t .
 rm pip/__init__.py setuptools/_distutils/command/build_ext.py
-cp "${BASE_DIR}/.site-packages/__init__.py" pip/__init__.py
-cp "${BASE_DIR}/.site-packages/build_ext.py" setuptools/_distutils/command/build_ext.py
+cp "${BASE_DIR}/site-packages/__init__.py" pip/__init__.py
+cp "${BASE_DIR}/site-packages/build_ext.py" setuptools/_distutils/command/build_ext.py
 find . -type d -name "__pycache__" -prune -exec rm -rf {} \;
 popd
 
@@ -142,10 +145,10 @@ for ((i = 0; i < count; i++)); do
   package_folder=$(echo "${package_name}" | tr '[:upper:]' '[:lower:]')
   sed -i '' "s/^${package_alias}.*/${package_alias}==${package_version/v/}/g" "${SOURCES_DIR}/requirements.txt"
   echo "${package_alias}: ${package_version/v/}" >> "${VERSION_FILE}"
-  printf "\n\n*** Building ${package_name} ***\n"
+  printf "\n\n*** Building %s ***\n" "${package_name}"
   ./"build-${package_folder}.sh" "${package_name}" "${package_version}" "${package_folder}"
 
-  if ! ls "${FRAMEWORKS_DIR}" | grep "${package_name}"&>/dev/null; then
+  if ! ls "${FRAMEWORKS_DIR}"/*"${package_name}"* &>/dev/null; then
       echo "Missing ${package_name} in folder ${FRAMEWORKS_DIR} !"
       exit 1
   fi
@@ -157,8 +160,8 @@ for ((i = 0; i < count; i++)); do
 done
 
 popd
-find "${SOURCES_DIR}" -name ''*.egg-info'' -exec cp -rf {} "${SITE_PACKAGES_DIR}" \;
-find "${SITE_PACKAGES_DIR}" -name ''*.so'' -delete
+find "${SOURCES_DIR}" -name '*.egg-info' -exec cp -rf {} "${SITE_PACKAGES_DIR}" \;
+find "${SITE_PACKAGES_DIR}" -name '*.so' -delete
 
 # cleaning
 

@@ -8,10 +8,11 @@ import shutil
 # Second argument: the name of the directory containing the frameworks, e.g: Numpy
 # Other arguments (optional): Frameworks names without extensions to keep
 
-def list_extensions(dir):
+
+def list_extensions(directory):
     files = list()
-    for item in os.listdir(dir):
-        abspath = os.path.join(dir, item)
+    for item in os.listdir(directory):
+        abspath = os.path.join(directory, item)
         try:
             if os.path.isdir(abspath):
                 files = files + list_extensions(abspath)
@@ -20,6 +21,7 @@ def list_extensions(dir):
         except FileNotFoundError as err:
             print('invalid directory\n', 'Error: ', err)
     return files
+
 
 info = """<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -52,9 +54,9 @@ info = """<?xml version="1.0" encoding="UTF-8"?>
 
 os.chdir(os.path.dirname(__file__)+"/../sources/"+sys.argv[1]+"/build")
 
-for dir in os.listdir("."):
-    if dir.startswith("lib."):
-        os.chdir(dir)
+for path in os.listdir("."):
+    if path.startswith("lib."):
+        os.chdir(path)
         break
 
 extensions = list_extensions(".")

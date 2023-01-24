@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
-source "${SCRIPTS_DIR}/environment.sh"
+# shellcheck source=/dev/null
+. "${SCRIPTS_DIR}/environment.sh"
 
 export PYTHON_CROSSENV=1
 export PYODIDE_PACKAGE_ABI=1

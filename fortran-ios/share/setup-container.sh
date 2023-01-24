@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-set -ex
 
-cd /root/host
-dpkg -i --force-depends deb/*.deb
+cd /root/host || exit
+dpkg -i --force-depends deb/*.deb &>/dev/null || true
 export PATH="/root/host/flang/bin:${PATH}"
-cd ${1}
+cd "${1}" || exit
 flang "${@:2}"
