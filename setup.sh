@@ -104,10 +104,10 @@ mkdir "${PYTHON_DIR}/site-packages"
 # pip packages
 
 pushd "${SITE_PACKAGES_DIR}"
-python3.10 -m pip install --no-deps -r "${BASE_DIR}/.site-packages/requirements.txt" -t .
+python3.10 -m pip install --no-deps -r "${BASE_DIR}/site-packages/requirements.txt" -t .
 rm pip/__init__.py setuptools/_distutils/command/build_ext.py
-cp "${BASE_DIR}/.site-packages/__init__.py" pip/__init__.py
-cp "${BASE_DIR}/.site-packages/build_ext.py" setuptools/_distutils/command/build_ext.py
+cp "${BASE_DIR}/site-packages/__init__.py" pip/__init__.py
+cp "${BASE_DIR}/site-packages/build_ext.py" setuptools/_distutils/command/build_ext.py
 find . -type d -name "__pycache__" -prune -exec rm -rf {} \;
 popd
 
