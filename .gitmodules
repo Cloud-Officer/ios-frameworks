@@ -1,0 +1,33 @@
+[submodule "sources/numpy"]
+	path = sources/numpy
+	url = https://github.com/numpy/numpy.git
+[submodule "sources/cython"]
+	path = sources/cython
+	url = https://github.com/cython/cython.git
+[submodule "sources/pyemd"]
+	path = sources/pyemd
+	url = https://github.com/wmayner/pyemd.git
+[submodule "sources/gensim"]
+	path = sources/gensim
+	url = https://github.com/RaRe-Technologies/gensim.git
+[submodule "sources/pandas"]
+	path = sources/pandas
+	url = https://github.com/pandas-dev/pandas.git
+[submodule "sources/statsmodels"]
+	path = sources/statsmodels
+	url = https://github.com/statsmodels/statsmodels.git
+[submodule "sources/pywt"]
+	path = sources/pywt
+	url = https://github.com/PyWavelets/pywt.git
+[submodule "sources/skimage"]
+	path = sources/skimage
+	url = https://github.com/scikit-image/scikit-image.git
+[submodule "sources/sklearn"]
+	path = sources/sklearn
+	url = https://github.com/scikit-learn/scikit-learn.git
+[submodule "sources/scipy"]
+	path = sources/scipy
+	url = https://github.com/scipy/scipy.git
+[submodule "sources/openssl"]
+	path = sources/openssl
+	url = https://github.com/x2on/OpenSSL-for-iPhone.git
