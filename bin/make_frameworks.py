@@ -32,7 +32,7 @@ info = """<?xml version="1.0" encoding="UTF-8"?>
     <key>CFBundleExecutable</key>
     <string>{}</string>
     <key>CFBundleIdentifier</key>
-    <string>ch.ada.Pyto.{}</string>
+    <string>com.CloudOfficer.Python.{}</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>

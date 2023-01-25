@@ -28,6 +28,3 @@
 [submodule "sources/scipy"]
 	path = sources/scipy
 	url = https://github.com/scipy/scipy.git
-[submodule "sources/openssl"]
-	path = sources/openssl
-	url = https://github.com/x2on/OpenSSL-for-iPhone.git

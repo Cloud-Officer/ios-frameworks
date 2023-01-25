@@ -35,8 +35,8 @@ packages=(
   pywavelets[@]
   scikit_image[@]
   scikit_learn[@]
-  scipy[@]
   statsmodels[@]
+  scipy[@]
 )
 
 BASE_DIR="$(pwd)"
@@ -69,13 +69,11 @@ fi
 
 CONDA_ENV_DIR="python-ios"
 
-set +x
 eval "$(command conda 'shell.bash' 'hook')"
 conda activate base
 rm -rf "$(conda info | grep 'envs directories' | awk -F ':' '{ print $2 }' | sed -e 's/^[[:space:]]*//')/${CONDA_ENV_DIR:?}"
 conda create -y --name "${CONDA_ENV_DIR}" python==3.10.8
 conda activate "${CONDA_ENV_DIR}"
-set -x
 sed -i '' "s/^${numpy[0]}.*/${numpy[0]}==${numpy[1]/v/}/g" requirements.in
 sed -i '' "s/^${scipy[0]}.*/${scipy[0]}==${scipy[1]/v/}/g" requirements.in
 pip-compile
@@ -86,7 +84,7 @@ pip3 install -r requirements.txt
 PYTHON_APPLE_SUPPORT_DIR="${BASE_DIR}/python-apple-support"
 PYTHON_APPLE_SUPPORT_VERSION="3.10-b6"
 
-rm -rf "${FRAMEWORKS_DIR}" "${PYTHON_APPLE_SUPPORT_DIR}" "${PYTHON_DIR}" "${VERSION_FILE}"
+rm -rf "${FRAMEWORKS_DIR}" "${PYTHON_APPLE_SUPPORT_DIR}" "${PYTHON_DIR}" "${VERSION_FILE}" Python-*.zip
 mkdir "${FRAMEWORKS_DIR}" "${PYTHON_APPLE_SUPPORT_DIR}"
 pushd "${PYTHON_APPLE_SUPPORT_DIR}"
 curl --silent --location "https://github.com/beeware/Python-Apple-support/releases/download/${PYTHON_APPLE_SUPPORT_VERSION}/Python-3.10-iOS-support.b6.tar.gz" --output python-apple-support.tar.gz
@@ -109,15 +107,8 @@ rm pip/__init__.py setuptools/_distutils/command/build_ext.py
 cp "${BASE_DIR}/site-packages/__init__.py" pip/__init__.py
 cp "${BASE_DIR}/site-packages/build_ext.py" setuptools/_distutils/command/build_ext.py
 find . -type d -name "__pycache__" -prune -exec rm -rf {} \;
+rm -rf cv2/.dylibs cv2/*.so
 popd
-
-# openssl
-
-#pushd "${SOURCES_DIR}/openssl"
-#./build-libssl.sh --version=1.1.1q
-#rm -f ./*.tar.gz
-#cp lib/* "${FRAMEWORKS_DIR}"
-#popd
 
 # openblas
 
@@ -160,8 +151,14 @@ for ((i = 0; i < count; i++)); do
 done
 
 popd
+
 find "${SOURCES_DIR}" -name '*.egg-info' -exec cp -rf {} "${SITE_PACKAGES_DIR}" \;
 find "${SITE_PACKAGES_DIR}" -name '*.so' -delete
+find "${FRAMEWORKS_DIR}" -name '*.so' -exec cp {} "${PYTHON_DIR}/lib-dynload" \;
+
+# compress output
+
+zip --quiet --recurse-paths "Python-$(grep Python versions.txt | awk -F':' '{ print $2 }' | sed 's/ //g')-iOS-Libraries-$(xxhsum versions.txt | awk '{ print $1 }').zip" LICENSE versions.txt frameworks python3.10
 
 # cleaning
 
