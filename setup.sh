@@ -10,8 +10,6 @@ numpy=("numpy" "v1.22.3" "numpy")
 # shellcheck disable=SC2034
 cython=("Cython" "0.29.33" "Cython")
 # shellcheck disable=SC2034
-gensim=("gensim" "4.3.0" "gensim")
-# shellcheck disable=SC2034
 pandas=("pandas" "v1.5.3" "pandas")
 # shellcheck disable=SC2034
 pyemd=("pyemd" "0.5.1" "pyemd")
@@ -29,7 +27,6 @@ statsmodels=("statsmodels" "v0.13.5" "statsmodels")
 packages=(
   numpy[@]
   cython[@]
-  gensim[@]
   pandas[@]
   pyemd[@]
   pywavelets[@]

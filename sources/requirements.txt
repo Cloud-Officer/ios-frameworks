@@ -1,5 +1,4 @@
 Cython==0.29.33
-gensim==4.3.0
 numpy==1.22.3
 pandas==1.5.3
 pyemd==0.5.1

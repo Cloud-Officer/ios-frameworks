@@ -7,9 +7,6 @@
 [submodule "sources/pyemd"]
 	path = sources/pyemd
 	url = https://github.com/wmayner/pyemd.git
-[submodule "sources/gensim"]
-	path = sources/gensim
-	url = https://github.com/RaRe-Technologies/gensim.git
 [submodule "sources/pandas"]
 	path = sources/pandas
 	url = https://github.com/pandas-dev/pandas.git

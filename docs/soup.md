@@ -57,6 +57,7 @@
 | Python | joblib |  | BSD License | Lightweight pipelining with Python functions | <https://joblib.readthedocs.io> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | locket |  | BSD License | File-based locks for Python on Linux and Windows | <http://github.com/mwilliamson/locket.py> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | networkx |  | BSD License | Python package for creating and manipulating graphs and networks | <https://networkx.org/> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | opencv-python |  | MIT License | Wrapper package for OpenCV python bindings. | <https://github.com/opencv/opencv-python> | 2023-01-25 | Low | Dependency | Dependency |
 | Python | partd |  | BSD | Appendable key-value storage | <http://github.com/dask/partd/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | platformdirs |  | MIT License | A small Python package for determining appropriate platform-specific dirs, e.g | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | pyparsing |  | MIT License | pyparsing module - Classes and methods to define and execute parsing grammars | <> | 2023-01-24 | Low | Dependency | Dependency |
@@ -73,3 +74,10 @@
 | Python | xlrd2 |  | Apache Software License | Library for developers to extract data from Microsoft Excel legacy spreadsheet files (xls) | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | pip |  | MIT License | The PyPA recommended tool for installing Python packages. | <https://pip.pypa.io/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | setuptools |  | MIT License | Easily download, build, install, upgrade, and uninstall Python packages | <https://github.com/pypa/setuptools> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | Cython |  | Apache Software License | The Cython compiler for writing C extensions for the Python language. | <http://cython.org/> | 2023-01-25 | Low | Dependency | Dependency |
+| Python | pandas |  | BSD License | Powerful data structures for data analysis, time series, and statistics | <https://pandas.pydata.org> | 2023-01-25 | Low | Dependency | Dependency |
+| Python | pyemd |  | MIT License | A Python wrapper for Ofir Pele and Michael Werman's implementation of the Earth Mover's Distance. | <http://github.com/wmayner/pyemd> | 2023-01-25 | Low | Dependency | Dependency |
+| Python | PyWavelets |  | MIT License | PyWavelets, wavelet transform module | <https://github.com/PyWavelets/pywt> | 2023-01-25 | Low | Dependency | Dependency |
+| Python | scikit-image |  | BSD License | Image processing in Python | <https://scikit-image.org> | 2023-01-25 | Low | Dependency | Dependency |
+| Python | scikit-learn |  | BSD License | A set of python modules for machine learning and data mining | <http://scikit-learn.org> | 2023-01-25 | Low | Dependency | Dependency |
+| Python | statsmodels |  | BSD License | Statistical computations and models for Python | <https://www.statsmodels.org/> | 2023-01-25 | Low | Dependency | Dependency |
