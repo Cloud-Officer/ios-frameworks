@@ -54,6 +54,10 @@ if ! brew list miniforge &>/dev/null; then
     exit 1
 fi
 
+if ! brew list docker &>/dev/null; then
+    brew install docker
+fi
+
 if ! brew list pip-tools &>/dev/null; then
     brew install pip-tools
 fi
@@ -106,6 +110,16 @@ cp "${BASE_DIR}/site-packages/build_ext.py" setuptools/_distutils/command/build_
 find . -type d -name "__pycache__" -prune -exec rm -rf {} \;
 rm -rf cv2/.dylibs cv2/*.so
 popd
+
+# open cv
+
+OPENCV_VERSION="4.7.0"
+
+curl --silent --location "https://github.com/Yeatse/OpenCV-SPM/releases/download/${OPENCV_VERSION}/opencv2.xcframework.zip" --output opencv.zip
+unzip -q opencv.zip
+mv build/opencv2.xcframework "${FRAMEWORKS_DIR}"
+echo "opencv-python: ${OPENCV_VERSION}" >> "${VERSION_FILE}"
+rm -rf build opencv.zip
 
 # openblas
 
