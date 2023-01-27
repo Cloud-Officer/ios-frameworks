@@ -108,7 +108,7 @@ rm pip/__init__.py setuptools/_distutils/command/build_ext.py
 cp "${BASE_DIR}/site-packages/__init__.py" pip/__init__.py
 cp "${BASE_DIR}/site-packages/build_ext.py" setuptools/_distutils/command/build_ext.py
 find . -type d -name "__pycache__" -prune -exec rm -rf {} \;
-rm -rf cv2/.dylibs cv2/*.so
+rm -rf cv2/.dylibs cv2/*.so numpy*
 popd
 
 # open cv
