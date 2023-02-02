@@ -72,7 +72,7 @@ for extension in extensions:
     del parts[-1]
     parts.append(name)
 
-    framework_name = "-".join(parts).replace("_", "")+".framework"
+    framework_name = "-".join(parts)+".framework"
     framework_path = os.path.join(frameworks_path, framework_name)
  
     os.makedirs(framework_path)
