@@ -401,7 +401,7 @@
     "version": null,
     "license": "BSD License",
     "description": "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files",
-    "website": "http://sphinx-doc.org/",
+    "website": "",
     "last_verified_at": "2023-01-24",
     "risk_level": "Low",
     "requirements": "Dependency",
@@ -659,14 +659,14 @@
     "requirements": "Dependency",
     "verification_reasoning": "Dependency"
   },
-  "opencv-python": {
+  "opencv-contrib-python-headless": {
     "language": "Python",
-    "package": "opencv-python",
+    "package": "opencv-contrib-python-headless",
     "version": null,
     "license": "MIT License",
     "description": "Wrapper package for OpenCV python bindings.",
     "website": "https://github.com/opencv/opencv-python",
-    "last_verified_at": "2023-01-25",
+    "last_verified_at": "2023-02-03",
     "risk_level": "Low",
     "requirements": "Dependency",
     "verification_reasoning": "Dependency"

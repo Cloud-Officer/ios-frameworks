@@ -38,6 +38,7 @@ packages=(
 
 PYTHON_APPLE_SUPPORT_VERSION="3.10"
 PYTHON_APPLE_SUPPORT_BUILD="b6"
+OPENCV_VERSION="4.7.0"
 BASE_DIR="$(pwd)"
 export BASE_DIR
 export FRAMEWORKS_DIR="${BASE_DIR}/frameworks"
@@ -88,7 +89,7 @@ conda create -y --name "${CONDA_ENV_DIR}" "python==${PYTHON_APPLE_SUPPORT_VERSIO
 conda activate "${CONDA_ENV_DIR}"
 sed -i '' "s/^${numpy[0]}.*/${numpy[0]}==${numpy[1]/v/}/g" requirements.in
 sed -i '' "s/^${scipy[0]}.*/${scipy[0]}==${scipy[1]/v/}/g" requirements.in
-pip-compile
+pip-compile  --resolver=backtracking
 pip3 install -r requirements.txt
 
 # python apple support
@@ -112,6 +113,13 @@ mkdir "${PYTHON_DIR}/site-packages"
 
 # pip packages
 
+pushd "${BASE_DIR}/site-packages"
+sed -i '' "s/^opencv-contrib-python-headless==.*/opencv-contrib-python-headless==${OPENCV_VERSION}.68/g" requirements.in
+pip-compile  --resolver=backtracking
+sed -i '' "s/^# pip/pip/g" requirements.txt
+sed -i '' "s/^# setuptools/setuptools/g" requirements.txt
+popd
+
 pushd "${SITE_PACKAGES_DIR}"
 python3 -m pip install --no-deps -r "${BASE_DIR}/site-packages/requirements.txt" -t .
 rm pip/__init__.py setuptools/_distutils/command/build_ext.py
@@ -122,8 +130,6 @@ rm -rf cv2/.dylibs cv2/*.so numpy*
 popd
 
 # open cv
-
-OPENCV_VERSION="4.7.0"
 
 curl --silent --location "https://github.com/Yeatse/OpenCV-SPM/releases/download/${OPENCV_VERSION}/opencv2.xcframework.zip" --output opencv.zip
 unzip -q opencv.zip

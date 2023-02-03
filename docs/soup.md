@@ -35,7 +35,7 @@
 | Python | sphinx |  | BSD License | Python documentation generator | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | sphinxcontrib-applehelp |  | BSD License | sphinxcontrib-applehelp is a Sphinx extension which outputs Apple help books | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | sphinxcontrib-devhelp |  | BSD License | sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp document. | <http://sphinx-doc.org/> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | sphinxcontrib-htmlhelp |  | BSD License | sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files | <http://sphinx-doc.org/> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | sphinxcontrib-htmlhelp |  | BSD License | sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | sphinxcontrib-jsmath |  | BSD License | A sphinx extension which renders display math in HTML via JavaScript | <http://sphinx-doc.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | sphinxcontrib-qthelp |  | BSD License | sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp document. | <http://sphinx-doc.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | sphinxcontrib-serializinghtml |  | BSD License | sphinxcontrib-serializinghtml is a sphinx extension which outputs "serialized" HTML files (json and pickle). | <http://sphinx-doc.org/> | 2023-01-24 | Low | Dependency | Dependency |
@@ -57,7 +57,7 @@
 | Python | joblib |  | BSD License | Lightweight pipelining with Python functions | <https://joblib.readthedocs.io> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | locket |  | BSD License | File-based locks for Python on Linux and Windows | <http://github.com/mwilliamson/locket.py> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | networkx |  | BSD License | Python package for creating and manipulating graphs and networks | <https://networkx.org/> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | opencv-python |  | MIT License | Wrapper package for OpenCV python bindings. | <https://github.com/opencv/opencv-python> | 2023-01-25 | Low | Dependency | Dependency |
+| Python | opencv-contrib-python-headless |  | MIT License | Wrapper package for OpenCV python bindings. | <https://github.com/opencv/opencv-python> | 2023-02-03 | Low | Dependency | Dependency |
 | Python | partd |  | BSD | Appendable key-value storage | <http://github.com/dask/partd/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | platformdirs |  | MIT License | A small Python package for determining appropriate platform-specific dirs, e.g | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | pyparsing |  | MIT License | pyparsing module - Classes and methods to define and execute parsing grammars | <> | 2023-01-24 | Low | Dependency | Dependency |
