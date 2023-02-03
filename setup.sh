@@ -156,10 +156,10 @@ for ((i = 0; i < count; i++)); do
   printf "\n\n*** Building %s ***\n" "${package_name}"
   ./"build-${package_folder}.sh" "${package_name}" "${package_version}" "${package_folder}"
 
-  #if ! ls "${FRAMEWORKS_DIR}"/*"${package_name}"* &>/dev/null; then
-  #    echo "Missing ${package_name} in folder ${FRAMEWORKS_DIR} !"
-  #    exit 1
-  #fi
+  if ! ls "${FRAMEWORKS_DIR}"/*"${package_name}"* &>/dev/null; then
+      echo "Missing ${package_name} in folder ${FRAMEWORKS_DIR} !"
+      exit 1
+  fi
 
   if ! [ -d "${SITE_PACKAGES_DIR}/${package_name}" ]; then
       echo "Missing ${package_name} in folder ${SITE_PACKAGES_DIR} !"
@@ -170,7 +170,7 @@ done
 popd
 
 find "${SOURCES_DIR}" -name '*.egg-info' -exec cp -rf {} "${SITE_PACKAGES_DIR}" \;
-#find "${SITE_PACKAGES_DIR}" -name '*.so' -delete
+find "${SITE_PACKAGES_DIR}" -name '*.so' -delete
 find "${FRAMEWORKS_DIR}" -name '*.so' -exec cp {} "${PYTHON_DIR}/lib-dynload" \;
 
 # compress output
