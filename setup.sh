@@ -73,6 +73,10 @@ if ! brew list openblas &>/dev/null; then
     brew install openblas
 fi
 
+if ! brew list xxhash &>/dev/null; then
+    brew install xxhash
+fi
+
 # conda environment
 
 CONDA_ENV_DIR="python-ios"
