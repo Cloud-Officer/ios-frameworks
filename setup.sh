@@ -22,7 +22,7 @@ scikit_learn=("sklearn" "1.2.0" "scikit-learn")
 # shellcheck disable=SC2034
 scipy=("scipy" "v1.10.0" "scipy")
 # shellcheck disable=SC2034
-statsmodels=("statsmodels" "v0.13.5" "statsmodels")
+statsmodels=("statsmodels" "v0.13.1" "statsmodels")
 
 packages=(
   numpy[@]
