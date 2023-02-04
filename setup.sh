@@ -144,10 +144,10 @@ LAPACK_VERSION="1.4"
 curl --silent --location "https://github.com/ColdGrub1384/lapack-ios/releases/download/v${LAPACK_VERSION}/lapack-ios.zip" --output lapack-ios.zip
 unzip -q lapack-ios.zip
 mv lapack-ios/openblas.framework "${FRAMEWORKS_DIR}"
-mv lapack-ios/lapack.framework "${FRAMEWORKS_DIR}"
-mv lapack-ios/ios_flang_runtime.framework "${FRAMEWORKS_DIR}/flang_runtime.framework"
+mv lapack-ios/lapack.framework "${FRAMEWORKS_DIR}/scipy-deps.framework"
+mv lapack-ios/ios_flang_runtime.framework "${FRAMEWORKS_DIR}"
 cp "${FRAMEWORKS_DIR}/openblas.framework/openblas" "${FRAMEWORKS_DIR}/libopenblas.dylib"
-cp "${FRAMEWORKS_DIR}/flang_runtime.framework/ios_flang_runtime" "${FRAMEWORKS_DIR}/libgfortran.dylib"
+cp "${FRAMEWORKS_DIR}/ios_flang_runtime.framework/ios_flang_runtime" "${FRAMEWORKS_DIR}/libgfortran.dylib"
 rm -rf __MACOSX lapack-ios lapack-ios.zip
 
 # build packages
