@@ -4,7 +4,7 @@
 
 This is a meta-package building Python Apple Support and common AI/ML libraries targeting an iOS platform.
 
-Special thanks to [BeeWave](https://github.com/beeware/Python-Apple-support) and [Emma Cold](https://github.com/ColdGrub1384/Pyto) for the inspiration.
+Special thanks to [BeeWare](https://github.com/beeware/Python-Apple-support) and [Emma Cold](https://github.com/ColdGrub1384/Pyto) for the inspiration.
 
 This was tested on macOS 13 on x86_64 and ARM64 platforms.
 
