@@ -9,5 +9,4 @@ git clean -xdf
 git reset --hard
 git checkout "${2}"
 python3 setup.py bdist
-make_frameworks.py "${1}"
 cp -r build/lib*/pyemd "${SITE_PACKAGES_DIR}"

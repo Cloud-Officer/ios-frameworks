@@ -12,5 +12,4 @@ git clean -xdf
 git reset --hard
 git checkout "${2}"
 python3 setup.py bdist --force
-make_frameworks.py "${1}"
 cp -r build/lib*/* "${SITE_PACKAGES_DIR}/${1}"

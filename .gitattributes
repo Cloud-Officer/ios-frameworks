@@ -1,1 +1,2 @@
 fortran-ios/bin/llc filter=lfs diff=lfs merge=lfs -text
+bin/llc filter=lfs diff=lfs merge=lfs -text

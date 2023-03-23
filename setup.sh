@@ -6,23 +6,23 @@ set -e
 # Python package name, package version tag, package name alias
 
 # shellcheck disable=SC2034
-numpy=("numpy" "v1.22.3" "numpy")
+numpy=("numpy" "v1.24.2" "numpy")
 # shellcheck disable=SC2034
 cython=("Cython" "0.29.33" "Cython")
 # shellcheck disable=SC2034
 pandas=("pandas" "v1.5.3" "pandas")
 # shellcheck disable=SC2034
-pyemd=("pyemd" "0.5.1" "pyemd")
+pyemd=("pyemd" "1.0.0" "pyemd")
 # shellcheck disable=SC2034
 pywavelets=("pywt" "v1.4.1" "PyWavelets")
 # shellcheck disable=SC2034
 scikit_image=("skimage" "v0.19.3" "scikit-image")
 # shellcheck disable=SC2034
-scikit_learn=("sklearn" "1.2.0" "scikit-learn")
+scikit_learn=("sklearn" "1.2.2" "scikit-learn")
 # shellcheck disable=SC2034
-scipy=("scipy" "v1.10.0" "scipy")
+scipy=("scipy" "v1.10.1" "scipy")
 # shellcheck disable=SC2034
-statsmodels=("statsmodels" "v0.13.1" "statsmodels")
+statsmodels=("statsmodels" "v0.13.5" "statsmodels")
 
 packages=(
   numpy[@]
@@ -38,7 +38,6 @@ packages=(
 
 PYTHON_APPLE_SUPPORT_VERSION="3.10"
 PYTHON_APPLE_SUPPORT_BUILD="b6"
-OPENCV_VERSION="4.7.0"
 BASE_DIR="$(pwd)"
 export BASE_DIR
 export FRAMEWORKS_DIR="${BASE_DIR}/frameworks"
@@ -46,24 +45,18 @@ export PYTHON_DIR="${BASE_DIR}/python${PYTHON_APPLE_SUPPORT_VERSION}"
 export SCRIPTS_DIR="${BASE_DIR}/scripts"
 export SITE_PACKAGES_DIR="${PYTHON_DIR}/site-packages"
 export SOURCES_DIR="${BASE_DIR}/sources"
-export FORTRAN_DIR="${BASE_DIR}/fortran-ios"
 export VERSION_FILE="${BASE_DIR}/versions.txt"
 
 # build dependencies
 
-if ! brew list miniforge &>/dev/null; then
-    brew install miniforge
+if ! brew list miniconda &>/dev/null; then
+    brew install miniconda
     echo "Please configure the base conda environment by running 'conda init <SHELL_NAME>' and then 'conda install -y python=${PYTHON_APPLE_SUPPORT_VERSION}' to create a base environment."
     exit 1
 fi
 
 if ! brew list docker &>/dev/null; then
     brew install docker
-fi
-
-if ! docker info &>/dev/null; then
-    echo "Docker daemon not running!"
-    exit 1
 fi
 
 if ! brew list pip-tools &>/dev/null; then
@@ -114,7 +107,6 @@ mkdir "${PYTHON_DIR}/site-packages"
 # pip packages
 
 pushd "${BASE_DIR}/site-packages"
-sed -i '' "s/^opencv-contrib-python-headless==.*/opencv-contrib-python-headless==${OPENCV_VERSION}.68/g" requirements.in
 pip-compile  --resolver=backtracking
 sed -i '' "s/^# pip/pip/g" requirements.txt
 sed -i '' "s/^# setuptools/setuptools/g" requirements.txt
@@ -126,16 +118,7 @@ rm pip/__init__.py setuptools/_distutils/command/build_ext.py
 cp "${BASE_DIR}/site-packages/__init__.py" pip/__init__.py
 cp "${BASE_DIR}/site-packages/build_ext.py" setuptools/_distutils/command/build_ext.py
 find . -type d -name "__pycache__" -prune -exec rm -rf {} \;
-rm -rf cv2/.dylibs cv2/*.so numpy*
 popd
-
-# open cv
-
-curl --silent --location "https://github.com/Yeatse/OpenCV-SPM/releases/download/${OPENCV_VERSION}/opencv2.xcframework.zip" --output opencv.zip
-unzip -q opencv.zip
-mv build/opencv2.xcframework "${FRAMEWORKS_DIR}"
-echo "opencv-python: ${OPENCV_VERSION}" >> "${VERSION_FILE}"
-rm -rf build opencv.zip
 
 # openblas
 
@@ -149,6 +132,20 @@ mv lapack-ios/ios_flang_runtime.framework "${FRAMEWORKS_DIR}"
 cp "${FRAMEWORKS_DIR}/openblas.framework/openblas" "${FRAMEWORKS_DIR}/libopenblas.dylib"
 cp "${FRAMEWORKS_DIR}/ios_flang_runtime.framework/ios_flang_runtime" "${FRAMEWORKS_DIR}/libgfortran.dylib"
 rm -rf __MACOSX lapack-ios lapack-ios.zip
+
+# setup docker for fortran/flang
+
+if ! docker info &>/dev/null; then
+  echo "Docker daemon not running!"
+  exit 1
+fi
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+# shellcheck disable=SC2048,SC2086
+DOCKER_BUILDKIT=1 docker build -t flang --compress . $*
+docker stop flang &>/dev/null || true
+docker rm flang &>/dev/null || true
+docker run -d --name flang -v "${BASE_DIR}/share:/root/host" -v /Users:/Users -v /var/folders:/var/folders -it flang
 
 # build packages
 
@@ -166,11 +163,6 @@ for ((i = 0; i < count; i++)); do
   printf "\n\n*** Building %s ***\n" "${package_name}"
   ./"build-${package_folder}.sh" "${package_name}" "${package_version}" "${package_folder}"
 
-  if ! ls "${FRAMEWORKS_DIR}"/*"${package_name}"* &>/dev/null; then
-      echo "Missing ${package_name} in folder ${FRAMEWORKS_DIR} !"
-      exit 1
-  fi
-
   if ! [ -d "${SITE_PACKAGES_DIR}/${package_name}" ]; then
       echo "Missing ${package_name} in folder ${SITE_PACKAGES_DIR} !"
       exit 1
@@ -180,8 +172,6 @@ done
 popd
 
 find "${SOURCES_DIR}" -name '*.egg-info' -exec cp -rf {} "${SITE_PACKAGES_DIR}" \;
-find "${SITE_PACKAGES_DIR}" -name '*.so' -delete
-find "${FRAMEWORKS_DIR}" -name '*.so' -exec cp {} "${PYTHON_DIR}/lib-dynload" \;
 
 # compress output
 
