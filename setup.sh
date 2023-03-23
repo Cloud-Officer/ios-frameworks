@@ -180,4 +180,4 @@ zip --quiet --recurse-paths "Python-$(grep Python versions.txt | awk -F':' '{ pr
 # cleaning
 
 conda activate base
-echo "Completed successfully."
+echo "${0##*/} completed successfully."
