@@ -14,5 +14,6 @@ git checkout "${2}"
 python3 setup.py bdist
 rm -rf build/lib*/skimage/data
 cp -r skimage/data build/lib*/skimage
+make_frameworks.py "${1}"
 cp skimage/feature/*.txt  build/lib*/skimage
 cp -r build/lib*/skimage "${SITE_PACKAGES_DIR}"

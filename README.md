@@ -17,12 +17,12 @@ The frameworks generated are:
 * XZ
 * numpy
 * Cython
-* gensim
 * pandas
 * pyemd
 * PyWavelets
 * scikit-image
 * scikit-learn
+* statsmodels
 * scipy
 
 ## Build Instructions

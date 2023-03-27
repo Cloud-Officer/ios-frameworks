@@ -5,7 +5,6 @@ set -e
 . "${SCRIPTS_DIR}/environment.sh"
 
 export LDFLAGS="-L'${FRAMEWORKS_DIR}'"
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 cd "${SOURCES_DIR}/${3}"
 git clean -xdf
@@ -19,4 +18,6 @@ sed -i '' "s!^runtime_library_dirs = .*!runtime_library_dirs = $(brew --prefix o
 git submodule update --init
 python3 setup.py bdist --force --verbose
 cp -f scipy/misc/*.dat build/lib*/scipy/misc
+make_frameworks.py "${1}"
+cp build/temp*iphoneos*/*.a "${FRAMEWORKS_DIR}"
 cp -r build/lib*/* "${SITE_PACKAGES_DIR}/${1}"
