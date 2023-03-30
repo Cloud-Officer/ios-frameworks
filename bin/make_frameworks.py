@@ -4,9 +4,7 @@ import sys
 import os
 import shutil
 
-# First argument: the name of the submodule, e.g: numpy
-# Second argument: the name of the directory containing the frameworks, e.g: Numpy
-# Other arguments (optional): Frameworks names without extensions to keep
+# First argument: the name of the module
 
 
 def list_extensions(directory):

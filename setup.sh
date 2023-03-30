@@ -26,13 +26,7 @@ statsmodels=("statsmodels" "v0.13.5" "statsmodels")
 
 packages=(
   numpy[@]
-  cython[@]
-  pandas[@]
-  pyemd[@]
-  pywavelets[@]
-  scikit_image[@]
   scikit_learn[@]
-  statsmodels[@]
   scipy[@]
 )
 
@@ -57,6 +51,15 @@ fi
 
 if ! brew list docker &>/dev/null; then
     brew install docker
+fi
+
+if ! brew list llvm &>/dev/null; then
+    brew install llvm
+fi
+
+if ! which llc &>/dev/null; then
+    echo "Please add homebrew llvm to your path (see brew info llvm)."
+    exit 1
 fi
 
 if ! brew list pip-tools &>/dev/null; then

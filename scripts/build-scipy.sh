@@ -16,7 +16,7 @@ sed -i '' "s!^library_dirs = .*!library_dirs = $(brew --prefix openblas)/lib!g" 
 sed -i '' "s!^include_dirs = .*!include_dirs = $(brew --prefix openblas)/include!g" site.cfg
 sed -i '' "s!^runtime_library_dirs = .*!runtime_library_dirs = $(brew --prefix openblas)/lib!g" site.cfg
 git submodule update --init
-python3 setup.py bdist --force --verbose
+python3 setup.py bdist --force
 cp -f scipy/misc/*.dat build/lib*/scipy/misc
 make_frameworks.py "${1}"
 cp build/temp*iphoneos*/*.a "${FRAMEWORKS_DIR}"
