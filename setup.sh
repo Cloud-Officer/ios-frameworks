@@ -40,6 +40,7 @@ export SCRIPTS_DIR="${BASE_DIR}/scripts"
 export SITE_PACKAGES_DIR="${PYTHON_DIR}/site-packages"
 export SOURCES_DIR="${BASE_DIR}/sources"
 export VERSION_FILE="${BASE_DIR}/versions.txt"
+PATH="${BASE_DIR}/bin:${PATH}"
 
 # build dependencies
 
@@ -98,14 +99,17 @@ pushd "${PYTHON_APPLE_SUPPORT_DIR}"
 curl --silent --location "https://github.com/beeware/Python-Apple-support/releases/download/${PYTHON_APPLE_SUPPORT_VERSION}-${PYTHON_APPLE_SUPPORT_BUILD}/Python-${PYTHON_APPLE_SUPPORT_VERSION}-iOS-support.${PYTHON_APPLE_SUPPORT_BUILD}.tar.gz" --output python-apple-support.tar.gz
 tar -xzf python-apple-support.tar.gz
 mv python-stdlib "${PYTHON_DIR}"
-mv Python.xcframework "${FRAMEWORKS_DIR}"
-cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64/Headers"
-cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64_x86_64-simulator/Headers"
+mv Python.xcframework "${FRAMEWORKS_DIR}/python.xcframework"
+mkdir -p "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64/Modules" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64_x86_64-simulator/Modules"
+cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64/Modules"
+cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64_x86_64-simulator/Modules"
 mv VERSIONS "${VERSION_FILE}"
 echo "---------------------" >> "${VERSION_FILE}"
 popd
-rm -rf "${PYTHON_APPLE_SUPPORT_DIR}"
-mkdir "${PYTHON_DIR}/site-packages"
+mkdir -p "${PYTHON_DIR}/site-packages"
+rm -rf "${PYTHON_APPLE_SUPPORT_DIR}" "${PYTHON_DIR}/lib-dynload"/*-iphonesimulator.so
+make-frameworks.sh --bundle-identifier "org" --bundle-name "python" --bundle-version "${PYTHON_APPLE_SUPPORT_VERSION}" --input-dir "${PYTHON_DIR}/lib-dynload" --output-dir "${FRAMEWORKS_DIR}"
+rm -rf "${PYTHON_DIR}/lib-dynload"
 
 # pip packages
 

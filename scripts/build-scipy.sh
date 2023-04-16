@@ -18,6 +18,6 @@ sed -i '' "s!^runtime_library_dirs = .*!runtime_library_dirs = $(brew --prefix o
 git submodule update --init
 python3 setup.py bdist --force
 cp -f scipy/misc/*.dat build/lib*/scipy/misc
-make_frameworks.py "${1}"
+make-frameworks.sh --bundle-identifier "org" --bundle-name "${1}" --bundle-version "${2}" --input-dir ./build/lib*/"${1}" --output-dir "${FRAMEWORKS_DIR}"
 cp build/temp*iphoneos*/*.a "${FRAMEWORKS_DIR}"
 cp -r build/lib*/* "${SITE_PACKAGES_DIR}/${1}"

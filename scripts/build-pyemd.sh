@@ -9,5 +9,5 @@ git clean -xdf
 git reset --hard
 git checkout "${2}"
 python3 setup.py bdist
-make_frameworks.py "${1}"
+make-frameworks.sh --bundle-identifier "com.github.wmayner" --bundle-name "${1}" --bundle-version "${2}" --input-dir ./build/lib*/"${1}" --output-dir "${FRAMEWORKS_DIR}"
 cp -r build/lib*/pyemd "${SITE_PACKAGES_DIR}"
