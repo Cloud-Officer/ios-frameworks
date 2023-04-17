@@ -100,9 +100,8 @@ curl --silent --location "https://github.com/beeware/Python-Apple-support/releas
 tar -xzf python-apple-support.tar.gz
 mv python-stdlib "${PYTHON_DIR}"
 mv Python.xcframework "${FRAMEWORKS_DIR}/python.xcframework"
-mkdir -p "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64_x86_64-simulator"
-cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64"
-cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64_x86_64-simulator"
+cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64/Headers"
+cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64_x86_64-simulator/Headers"
 mv VERSIONS "${VERSION_FILE}"
 echo "---------------------" >> "${VERSION_FILE}"
 popd
