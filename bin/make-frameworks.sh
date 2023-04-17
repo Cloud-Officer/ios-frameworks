@@ -65,7 +65,7 @@ for library in ./**/*.so; do
     echo "    <key>CFBundleShortVersionString</key>"
     echo "    <string>${bundle_version%.*}</string>"
     echo "    <key>CFBundleExecutable</key>"
-    echo "    <string>$(basename "${library}")</string>"
+    echo "    <string>$(basename "${library/darwin/iphoneos}")</string>"
     echo "</dict>"
     echo "</plist>"
   } >"${output_dir}/${folder_name}/Info.plist"
