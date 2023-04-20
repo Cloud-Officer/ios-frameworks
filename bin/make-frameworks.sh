@@ -35,7 +35,7 @@ for library in ./**/*.so; do
     prefix_package="${bundle_name}.$(echo "${directory}" | tr -d '/')"
   fi
 
-  rm -rf "${output_dir}/${folder_name}"
+  rm -rf "${output_dir:?}/${folder_name}"
   mkdir -p "${output_dir}/${folder_name}"
   cp "${library}" "${output_dir}/${folder_name}/$(basename "${library/darwin/iphoneos}")"
 
@@ -57,7 +57,7 @@ for library in ./**/*.so; do
     echo "    <key>MinimumOSVersion</key>"
     echo "    <string>12.0</string>"
     echo "    <key>CFBundleIdentifier</key>"
-    echo "    <string>${bundle_identifier}.${prefix_package}${library_name}</string>"
+    echo "    <string>${bundle_identifier//_/}.${prefix_package//_/}${library_name//_/}</string>"
     echo "    <key>CFBundleName</key>"
     echo "    <string>${prefix_package/./}${library_name}</string>"
     echo "    <key>CFBundleVersion</key>"
