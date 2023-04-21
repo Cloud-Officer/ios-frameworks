@@ -109,7 +109,8 @@ mkdir -p "${PYTHON_DIR}/site-packages"
 rm -rf "${PYTHON_APPLE_SUPPORT_DIR}" "${PYTHON_DIR}/lib-dynload"/*-iphonesimulator.so
 
 for file in "${PYTHON_DIR}/lib-dynload"/*.so; do
-  mv ${file} ${file/.so/.dylib}
+  lipo ${file} -thin arm64 -output ${file/.so/.dylib}
+  rm ${file}
 done
 
 make-frameworks.sh --bundle-identifier "org" --bundle-name "python" --bundle-version "${PYTHON_APPLE_SUPPORT_VERSION}" --input-dir "${PYTHON_DIR}/lib-dynload" --output-dir "${FRAMEWORKS_DIR}"
