@@ -31,7 +31,6 @@ packages=(
 )
 
 PYTHON_APPLE_SUPPORT_VERSION="3.10"
-PYTHON_APPLE_SUPPORT_BUILD="b6"
 BASE_DIR="$(pwd)"
 export BASE_DIR
 export FRAMEWORKS_DIR="${BASE_DIR}/frameworks"
@@ -91,26 +90,25 @@ pip3 install -r requirements.txt
 
 # python apple support
 
-PYTHON_APPLE_SUPPORT_DIR="${BASE_DIR}/python-apple-support"
+PYTHON_APPLE_SUPPORT_DIR="${SOURCES_DIR}/python-apple-support"
 
-rm -rf "${FRAMEWORKS_DIR}" "${PYTHON_APPLE_SUPPORT_DIR}" "${PYTHON_DIR}" "${VERSION_FILE}" Python-*.zip
-mkdir "${FRAMEWORKS_DIR}" "${PYTHON_APPLE_SUPPORT_DIR}"
+rm -rf "${FRAMEWORKS_DIR}" "${PYTHON_DIR}" "${VERSION_FILE}" Python-*.zip
+mkdir "${FRAMEWORKS_DIR}"
 pushd "${PYTHON_APPLE_SUPPORT_DIR}"
-curl --silent --location "https://github.com/beeware/Python-Apple-support/releases/download/${PYTHON_APPLE_SUPPORT_VERSION}-${PYTHON_APPLE_SUPPORT_BUILD}/Python-${PYTHON_APPLE_SUPPORT_VERSION}-iOS-support.${PYTHON_APPLE_SUPPORT_BUILD}.tar.gz" --output python-apple-support.tar.gz
-tar -xzf python-apple-support.tar.gz
-mv python-stdlib "${PYTHON_DIR}"
-mv Python.xcframework "${FRAMEWORKS_DIR}/python.xcframework"
+cp -f "${BASE_DIR}/Python.patch" patch/Python
+make iOS
+tar -xzf dist/Python-3.10-iOS-support.custom.tar.gz --directory "${FRAMEWORKS_DIR}"
+mv "${FRAMEWORKS_DIR}/python-stdlib" "${PYTHON_DIR}"
 cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64/Headers"
 cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64_x86_64-simulator/Headers"
-mv VERSIONS "${VERSION_FILE}"
+mv "${FRAMEWORKS_DIR}/VERSIONS" "${VERSION_FILE}"
 echo "---------------------" >> "${VERSION_FILE}"
 popd
 mkdir -p "${PYTHON_DIR}/site-packages"
-rm -rf "${PYTHON_APPLE_SUPPORT_DIR}" "${PYTHON_DIR}/lib-dynload"/*-iphonesimulator.so
+rm -rf "${FRAMEWORKS_DIR}/platform-site" "${PYTHON_DIR}/lib-dynload"/*-iphonesimulator.so
 
 for file in "${PYTHON_DIR}/lib-dynload"/*.so; do
-  lipo ${file} -thin arm64 -output ${file/.so/.dylib}
-  rm ${file}
+  mv "${file}" "${file/.so/.dylib}"
 done
 
 make-frameworks.sh --bundle-identifier "org" --bundle-name "python" --bundle-version "${PYTHON_APPLE_SUPPORT_VERSION}" --input-dir "${PYTHON_DIR}/lib-dynload" --output-dir "${FRAMEWORKS_DIR}"

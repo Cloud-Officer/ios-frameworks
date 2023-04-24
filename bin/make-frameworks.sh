@@ -81,6 +81,10 @@ for library in ./**/*.so ./**/*.dylib; do
     prefix_package="${bundle_name}.$(echo "${directory}" | tr -d '/')"
   fi
 
+  if [ "${bundle_name}" == "python" ]; then
+    folder_name="${folder_name/python-/}"
+  fi
+
   rm -rf "${output_dir:?}/${folder_name}"
   mkdir -p "${output_dir}/${folder_name}"
   cp "${library}" "${output_dir}/${folder_name}/$(basename "${library/darwin/iphoneos}")"
