@@ -8,7 +8,7 @@ parse_command_line()
   printf "# default values\n\n"
 
   while read -r line; do
-    IFS=, read -r argument variable_name default_value required append help_text <<< "${line}"
+    IFS=, read -r argument variable_name default_value required append help_text <<<"${line}"
 
     if [ "${default_value}" != "-1" ]; then
       printf "%s=\"%s\"\n" "${variable_name}" "${default_value}"
@@ -24,14 +24,14 @@ parse_command_line()
   printf "\n    options\n"
 
   while read -r line; do
-    IFS=, read -r argument variable_name default_value required append help_text <<< "${line}"
+    IFS=, read -r argument variable_name default_value required append help_text <<<"${line}"
     printf "            %s %s\n" "${argument}" "${help_text}"
   done < <(awk '/^#\[/,/^#\]/ { print }' <"${0}" | grep -v '\[' | grep -v '\]' | tr -d '#')
 
   printf "\"\n    exit 0\n    ;;\n\n"
 
   while read -r line; do
-    IFS=, read -r argument variable_name default_value required append help_text <<< "${line}"
+    IFS=, read -r argument variable_name default_value required append help_text <<<"${line}"
 
     if [ "${append}" == "1" ]; then
       printf "  %s)\n    %s=\"\${%s} %s \${2}\"\n    shift\n    shift\n    ;;\n\n" "${argument}" "${variable_name}" "${variable_name}" "${argument}"
@@ -43,7 +43,7 @@ parse_command_line()
   printf "  *)\n    positional+=(\"\${1}\")\n    shift\n    ;;\n  esac\ndone\n\nset -- \"\${positional[@]}\"\n\n"
 
   while read -r line; do
-    IFS=, read -r argument variable_name default_value required append help_text <<< "${line}"
+    IFS=, read -r argument variable_name default_value required append help_text <<<"${line}"
 
     if [ "${required}" == "1" ]; then
       printf "if [ -z \"\${%s}\" ]; then\n  echo \"Error: %s required !\"\n  exit 1\nfi\n\n" "${variable_name}" "${argument}"
@@ -61,24 +61,25 @@ parse_command_line()
 # --output-dir,output_dir,,1,0,output directory
 #]
 
+# shellcheck source=/dev/null
 . <(parse_command_line)
 
 # generate xcframework
 
+# shellcheck disable=SC2154
 pushd "${input_dir}"
 
-bundle_version="${bundle_version/v/}"
-
-for library in ./**/*.so ./**/*.dylib; do
+for library in ./**/*-iphoneos.so ./**/*-iphoneos.dylib; do
+  echo "Processing ${library}..."
   library_name="$(basename "${library%.cpython*}")"
   directory="$(dirname "${library/.\//}")"
 
   if [ "${directory}" = "." ]; then
-    folder_name="${bundle_name}-${library_name}.framework"
-    prefix_package="${bundle_name}"
+    # shellcheck disable=SC2154
+    folder_name="${bundle_name}-${library_name}.xcframework"
   else
-    folder_name="${bundle_name}-$(echo "${directory}" | tr '/' '-')-${library_name}.framework"
-    prefix_package="${bundle_name}.$(echo "${directory}" | tr -d '/')"
+    # shellcheck disable=SC2154
+    folder_name="${bundle_name}-$(echo "${directory}" | tr '/' '-')-${library_name}.xcframework"
   fi
 
   if [ "${bundle_name}" == "python" ]; then
@@ -86,39 +87,63 @@ for library in ./**/*.so ./**/*.dylib; do
   fi
 
   rm -rf "${output_dir:?}/${folder_name}"
-  mkdir -p "${output_dir}/${folder_name}"
-  cp "${library}" "${output_dir}/${folder_name}/$(basename "${library/darwin/iphoneos}")"
+  mkdir -p "${output_dir}/${folder_name}/ios-arm64"
+  library_file="${library/darwin/iphoneos}"
+  cp "${library}" "${output_dir}/${folder_name}/ios-arm64/$(basename "${library_file}")"
 
   {
-    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-    echo "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">"
-    echo "<plist version=\"1.0\">"
+    echo '<?xml version="1.0" encoding="UTF-8"?>'
+    echo '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">'
+    echo '<plist version="1.0">'
     echo "<dict>"
-    echo "    <key>CFBundlePackageType</key>"
-    echo "    <string>FMWK</string>"
-    echo "    <key>CFBundleInfoDictionaryVersion</key>"
-    echo "    <string>6.0</string>"
-    echo "    <key>CFBundleDevelopmentRegion</key>"
-    echo "    <string>en</string>"
-    echo "    <key>CFBundleSupportedPlatforms</key>"
-    echo "    <array>"
-    echo "        <string>iPhoneOS</string>"
-    echo "    </array>"
-    echo "    <key>MinimumOSVersion</key>"
-    echo "    <string>12.0</string>"
-    echo "    <key>CFBundleIdentifier</key>"
-    echo "    <string>${bundle_identifier//_/}.${prefix_package//_/}${library_name//_/}</string>"
-    echo "    <key>CFBundleName</key>"
-    echo "    <string>${prefix_package/./}${library_name}</string>"
-    echo "    <key>CFBundleVersion</key>"
-    echo "    <string>${bundle_version}</string>"
-    echo "    <key>CFBundleShortVersionString</key>"
-    echo "    <string>${bundle_version%.*}</string>"
-    echo "    <key>CFBundleExecutable</key>"
-    echo "    <string>$(basename "${library/darwin/iphoneos}")</string>"
+    echo "	<key>CFBundlePackageType</key>"
+    echo "	<string>XFWK</string>"
+    echo "	<key>XCFrameworkFormatVersion</key>"
+    echo "	<string>1.0</string>"
+    echo "	<key>AvailableLibraries</key>"
+    echo "	<array>"
+    echo "		<dict>"
+    echo "			<key>LibraryIdentifier</key>"
+    echo "			<string>ios-arm64</string>"
+    echo "			<key>LibraryPath</key>"
+    echo "			<string>$(basename "${library_file}")</string>"
+    echo "			<key>SupportedArchitectures</key>"
+    echo "			<array>"
+    echo "				<string>arm64</string>"
+    echo "			</array>"
+    echo "			<key>SupportedPlatform</key>"
+    echo "			<string>ios</string>"
+    echo "		</dict>"
+  } >"${output_dir}/${folder_name}/Info.plist"
+
+  if [ -f "${library/iphoneos/iphonesimulator}" ]; then
+    mkdir -p "${output_dir}/${folder_name}/ios-arm64_x86_64-simulator"
+    cp "${library/iphoneos/iphonesimulator}" "${output_dir}/${folder_name}/ios-arm64_x86_64-simulator/$(basename "${library_file/iphoneos/iphonesimulator}")"
+
+    {
+      echo "		<dict>"
+      echo "        <key>LibraryIdentifier</key>"
+      echo "        <string>ios-arm64_x86_64-simulator</string>"
+      echo "        <key>LibraryPath</key>"
+      echo "        <string>$(basename "${library_file/iphoneos/iphonesimulator}")</string>"
+      echo "        <key>SupportedArchitectures</key>"
+      echo "        <array>"
+      echo "          <string>arm64</string>"
+      echo "          <string>x86_64</string>"
+      echo "        </array>"
+      echo "        <key>SupportedPlatform</key>"
+      echo "        <string>ios</string>"
+      echo "        <key>SupportedPlatformVariant</key>"
+      echo "        <string>simulator</string>"
+      echo "      </dict>"
+    } >>"${output_dir}/${folder_name}/Info.plist"
+  fi
+
+  {
+    echo "	</array>"
     echo "</dict>"
     echo "</plist>"
-  } >"${output_dir}/${folder_name}/Info.plist"
+  } >>"${output_dir}/${folder_name}/Info.plist"
 done
 
 popd

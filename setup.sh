@@ -101,11 +101,10 @@ tar -xzf dist/Python-3.10-iOS-support.custom.tar.gz --directory "${FRAMEWORKS_DI
 mv "${FRAMEWORKS_DIR}/python-stdlib" "${PYTHON_DIR}"
 cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64/Headers"
 cp "${BASE_DIR}/module.modulemap" "${FRAMEWORKS_DIR}/Python.xcframework/ios-arm64_x86_64-simulator/Headers"
+rm -rf "${FRAMEWORKS_DIR}/platform-site"
 mv "${FRAMEWORKS_DIR}/VERSIONS" "${VERSION_FILE}"
 echo "---------------------" >> "${VERSION_FILE}"
 popd
-mkdir -p "${PYTHON_DIR}/site-packages"
-rm -rf "${FRAMEWORKS_DIR}/platform-site" "${PYTHON_DIR}/lib-dynload"/*-iphonesimulator.so
 
 for file in "${PYTHON_DIR}/lib-dynload"/*.so; do
   mv "${file}" "${file/.so/.dylib}"
@@ -116,6 +115,7 @@ rm -rf "${PYTHON_DIR}/lib-dynload"
 
 # pip packages
 
+mkdir -p "${PYTHON_DIR}/site-packages"
 pushd "${BASE_DIR}/site-packages"
 pip-compile  --resolver=backtracking
 sed -i '' "s/^# pip/pip/g" requirements.txt
