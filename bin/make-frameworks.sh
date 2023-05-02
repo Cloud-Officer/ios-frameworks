@@ -76,74 +76,50 @@ for library in ./**/*-iphoneos.so ./**/*-iphoneos.dylib; do
 
   if [ "${directory}" = "." ]; then
     # shellcheck disable=SC2154
-    folder_name="${bundle_name}-${library_name}.xcframework"
+    folder_name="${bundle_name}-${library_name}.framework"
+    prefix_package="${bundle_name}"
   else
     # shellcheck disable=SC2154
-    folder_name="${bundle_name}-$(echo "${directory}" | tr '/' '-')-${library_name}.xcframework"
+    folder_name="${bundle_name}-$(echo "${directory}" | tr '/' '-')-${library_name}.framework"
   fi
 
   if [ "${bundle_name}" == "python" ]; then
     folder_name="${folder_name/python-/}"
+    prefix_package="${bundle_name}.$(echo "${directory}" | tr -d '/')"
   fi
 
   rm -rf "${output_dir:?}/${folder_name}"
-  mkdir -p "${output_dir}/${folder_name}/ios-arm64"
+  mkdir "${output_dir}/${folder_name}"
   library_file="${library/darwin/iphoneos}"
-  cp "${library}" "${output_dir}/${folder_name}/ios-arm64/$(basename "${library_file}")"
+  cp "${library}" "${output_dir}/${folder_name}/$(basename "${library_file}")"
 
   {
     echo '<?xml version="1.0" encoding="UTF-8"?>'
     echo '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">'
     echo '<plist version="1.0">'
-    echo "<dict>"
-    echo "	<key>CFBundlePackageType</key>"
-    echo "	<string>XFWK</string>"
-    echo "	<key>XCFrameworkFormatVersion</key>"
-    echo "	<string>1.0</string>"
-    echo "	<key>AvailableLibraries</key>"
-    echo "	<array>"
-    echo "		<dict>"
-    echo "			<key>LibraryIdentifier</key>"
-    echo "			<string>ios-arm64</string>"
-    echo "			<key>LibraryPath</key>"
-    echo "			<string>$(basename "${library_file}")</string>"
-    echo "			<key>SupportedArchitectures</key>"
-    echo "			<array>"
-    echo "				<string>arm64</string>"
-    echo "			</array>"
-    echo "			<key>SupportedPlatform</key>"
-    echo "			<string>ios</string>"
-    echo "		</dict>"
+    echo "    <key>CFBundlePackageType</key>"
+    echo "    <string>FMWK</string>"
+    echo "    <key>CFBundleInfoDictionaryVersion</key>"
+    echo "    <string>6.0</string>"
+    echo "    <key>CFBundleDevelopmentRegion</key>"
+    echo "    <string>en</string>"
+    echo "    <key>CFBundleSupportedPlatforms</key>"
+    echo "    <array>"
+    echo "        <string>iPhoneOS</string>"
+    echo "    </array>"
+    echo "    <key>MinimumOSVersion</key>"
+    echo "    <string>12.0</string>"
+    echo "    <key>CFBundleIdentifier</key>"
+    echo "    <string>${bundle_identifier//_/}.${prefix_package//_/}${library_name//_/}</string>"
+    echo "    <key>CFBundleName</key>"
+    echo "    <string>${prefix_package/./}${library_name}</string>"
+    echo "    <key>CFBundleVersion</key>"
+    echo "    <string>${bundle_version}</string>"
+    echo "    <key>CFBundleShortVersionString</key>"
+    echo "    <string>${bundle_version%.*}</string>"
+    echo "    <key>CFBundleExecutable</key>"
+    echo "    <string>$(basename "${library/darwin/iphoneos}")</string>"
   } >"${output_dir}/${folder_name}/Info.plist"
-
-  if [ -f "${library/iphoneos/iphonesimulator}" ]; then
-    mkdir -p "${output_dir}/${folder_name}/ios-arm64_x86_64-simulator"
-    cp "${library/iphoneos/iphonesimulator}" "${output_dir}/${folder_name}/ios-arm64_x86_64-simulator/$(basename "${library_file/iphoneos/iphonesimulator}")"
-
-    {
-      echo "		<dict>"
-      echo "        <key>LibraryIdentifier</key>"
-      echo "        <string>ios-arm64_x86_64-simulator</string>"
-      echo "        <key>LibraryPath</key>"
-      echo "        <string>$(basename "${library_file/iphoneos/iphonesimulator}")</string>"
-      echo "        <key>SupportedArchitectures</key>"
-      echo "        <array>"
-      echo "          <string>arm64</string>"
-      echo "          <string>x86_64</string>"
-      echo "        </array>"
-      echo "        <key>SupportedPlatform</key>"
-      echo "        <string>ios</string>"
-      echo "        <key>SupportedPlatformVariant</key>"
-      echo "        <string>simulator</string>"
-      echo "      </dict>"
-    } >>"${output_dir}/${folder_name}/Info.plist"
-  fi
-
-  {
-    echo "	</array>"
-    echo "</dict>"
-    echo "</plist>"
-  } >>"${output_dir}/${folder_name}/Info.plist"
 done
 
 popd

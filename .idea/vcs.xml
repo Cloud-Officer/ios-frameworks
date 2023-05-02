@@ -6,6 +6,7 @@
     <mapping directory="$PROJECT_DIR$/sources/numpy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/pandas" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/pyemd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sources/python-apple-support" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/pywt" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/scipy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/scipy/doc/source/_static/scipy-mathjax" vcs="Git" />
