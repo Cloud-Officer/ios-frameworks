@@ -106,8 +106,11 @@ mv "${FRAMEWORKS_DIR}/VERSIONS" "${VERSION_FILE}"
 echo "---------------------" >> "${VERSION_FILE}"
 popd
 
+rm "${PYTHON_DIR}/lib-dynload"/*-iphonesimulator.so
+
 for file in "${PYTHON_DIR}/lib-dynload"/*.so; do
-  mv "${file}" "${file/.so/.dylib}"
+  lipo "${file}" -thin arm64 -output "${file/.so/.dylib}"
+  rm "${file}"
 done
 
 make-frameworks.sh --bundle-identifier "org" --bundle-name "python" --bundle-version "${PYTHON_APPLE_SUPPORT_VERSION}" --input-dir "${PYTHON_DIR}/lib-dynload" --output-dir "${FRAMEWORKS_DIR}"
@@ -187,7 +190,7 @@ done
 popd
 
 find "${SOURCES_DIR}" -name '*.egg-info' -exec cp -rf {} "${SITE_PACKAGES_DIR}" \;
-find "${SITE_PACKAGES_DIR}" -name '*.so' -delete
+find "${SITE_PACKAGES_DIR}" \( -name '*.dylib' -or -name -name '*.so' \) -delete
 
 # compress output
 
