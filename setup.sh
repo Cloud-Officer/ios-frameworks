@@ -190,7 +190,8 @@ done
 popd
 
 find "${SOURCES_DIR}" -name '*.egg-info' -exec cp -rf {} "${SITE_PACKAGES_DIR}" \;
-find "${SITE_PACKAGES_DIR}" \( -name '*.dylib' -or -name -name '*.so' \) -delete
+find "${SITE_PACKAGES_DIR}" -name '*.dylib' -delete
+find "${SITE_PACKAGES_DIR}" -name '*.so' -delete
 
 # compress output
 

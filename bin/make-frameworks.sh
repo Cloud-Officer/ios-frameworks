@@ -81,17 +81,23 @@ for library in ./**/*-iphoneos.so ./**/*-iphoneos.dylib; do
   else
     # shellcheck disable=SC2154
     folder_name="${bundle_name}-$(echo "${directory}" | tr '/' '-')-${library_name}.framework"
+    prefix_package="${bundle_name}.$(echo "${directory}" | tr '/' '.')"
   fi
 
   if [ "${bundle_name}" == "python" ]; then
     folder_name="${folder_name/python-/}"
-    prefix_package="${bundle_name}.$(echo "${directory}" | tr -d '/')"
   fi
 
   rm -rf "${output_dir:?}/${folder_name}"
   mkdir "${output_dir}/${folder_name}"
   library_file="${library/darwin/iphoneos}"
   cp "${library}" "${output_dir}/${folder_name}/$(basename "${library_file}")"
+  full_bundle_identifer="${bundle_identifier//_/}.${prefix_package//_/}.${library_name//_/.}"
+  full_bundle_identifer="${full_bundle_identifer/../.}"
+
+  echo "${folder_name}"
+  echo "${prefix_package}"
+  echo "${full_bundle_identifer}"
 
   {
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
@@ -111,9 +117,9 @@ for library in ./**/*-iphoneos.so ./**/*-iphoneos.dylib; do
     echo "    <key>MinimumOSVersion</key>"
     echo "    <string>12.0</string>"
     echo "    <key>CFBundleIdentifier</key>"
-    echo "    <string>${bundle_identifier//_/}.${prefix_package//_/}${library_name//_/}</string>"
+    echo "    <string>${full_bundle_identifer}</string>"
     echo "    <key>CFBundleName</key>"
-    echo "    <string>${prefix_package/./}${library_name}</string>"
+    echo "    <string>${full_bundle_identifer}</string>"
     echo "    <key>CFBundleVersion</key>"
     echo "    <string>${bundle_version}</string>"
     echo "    <key>CFBundleShortVersionString</key>"
