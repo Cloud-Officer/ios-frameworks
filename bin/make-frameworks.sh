@@ -68,6 +68,7 @@ parse_command_line()
 
 # shellcheck disable=SC2154
 pushd "${input_dir}"
+bundle_version="${bundle_version/v/}"
 
 for library in ./**/*-iphoneos.so ./**/*-iphoneos.dylib; do
   echo "Processing ${library}..."
