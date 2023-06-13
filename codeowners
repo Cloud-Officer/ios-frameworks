@@ -1,0 +1,17 @@
+# https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
+
+*                        @ydesgagn
+
+# build/deploy related files
+
+.gitattributes           @ydesgagn
+.github/*                @ydesgagn
+.gitignore               @ydesgagn
+.gitmodules              @ydesgagn
+.soup.json               @ydesgagn
+codeowners               @ydesgagn
+readme.md                @ydesgagn
+bin/*                    @ydesgagn
+docs/*                   @ydesgagn
+*.sh                     @ydesgagn
+Dockerfile               @ydesgagn
