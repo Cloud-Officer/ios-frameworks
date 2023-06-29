@@ -473,7 +473,7 @@
     "version": "1.2.0",
     "license": "BSD License",
     "description": "Lightweight pipelining with Python functions",
-    "website": "https://joblib.readthedocs.io",
+    "website": "",
     "last_verified_at": "2023-01-24",
     "risk_level": "Low",
     "requirements": "Dependency",

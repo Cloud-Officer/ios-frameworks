@@ -41,7 +41,7 @@
 | Python | sphinxcontrib-serializinghtml | 1.1.5 | BSD License | sphinxcontrib-serializinghtml is a sphinx extension which outputs "serialized" HTML files (json and pickle). | <http://sphinx-doc.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | urllib3 | 1.26.14 | MIT License | HTTP library with thread-safe connection pooling, file post, and more. | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | wheel | 0.38.4 | MIT License | A built-package format for Python | <> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | joblib | 1.2.0 | BSD License | Lightweight pipelining with Python functions | <https://joblib.readthedocs.io> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | joblib | 1.2.0 | BSD License | Lightweight pipelining with Python functions | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | threadpoolctl | 3.1.0 | BSD License | threadpoolctl | <https://github.com/joblib/threadpoolctl> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | pip |  | MIT License | The PyPA recommended tool for installing Python packages. | <https://pip.pypa.io/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | setuptools |  | MIT License | Easily download, build, install, upgrade, and uninstall Python packages | <https://github.com/pypa/setuptools> | 2023-01-24 | Low | Dependency | Dependency |
