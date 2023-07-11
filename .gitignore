@@ -190,6 +190,6 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,jetbrains
 
 frameworks/**
-python3.10/**
+python3.11/**
 Python-*.zip
 versions.txt
