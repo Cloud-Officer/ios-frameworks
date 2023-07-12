@@ -10,3 +10,4 @@
 [submodule "sources/python-apple-support"]
 	path = sources/python-apple-support
 	url = https://github.com/beeware/Python-Apple-support.git
+	branch = 3.11
