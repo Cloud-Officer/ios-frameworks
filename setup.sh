@@ -81,7 +81,7 @@ CONDA_ENV_DIR="python-ios"
 eval "$(command conda 'shell.bash' 'hook')"
 conda activate base
 rm -rf "$(conda info | grep 'envs directories' | awk -F ':' '{ print $2 }' | sed -e 's/^[[:space:]]*//')/${CONDA_ENV_DIR:?}"
-conda create -y --name "${CONDA_ENV_DIR}" "python==${PYTHON_APPLE_SUPPORT_VERSION}.4"
+conda create -y --name "${CONDA_ENV_DIR}" "python==${PYTHON_APPLE_SUPPORT_VERSION}.3"
 conda activate "${CONDA_ENV_DIR}"
 sed -i '' "s/^${numpy[0]}.*/${numpy[0]}==${numpy[1]/v/}/g" requirements.in
 sed -i '' "s/^${scipy[0]}.*/${scipy[0]}==${scipy[1]/v/}/g" requirements.in
