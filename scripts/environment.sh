@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-alias python3=python3.10
+alias python3=python3.11
 
 SDK="$(xcrun --sdk iphoneos --show-sdk-path)"
 XCRUN="iosxcrun"
 NUMPY1="${SOURCES_DIR}/numpy/numpy/core/include"
-NUMPY2="${SOURCES_DIR}/numpy/build/src.iphoneos-arm64-3.10/numpy/core/include/numpy"
+NUMPY2="${SOURCES_DIR}/numpy/build/src.iphoneos-arm64-3.11/numpy/core/include/numpy"
 
 export PATH="${BASE_DIR}/bin:${PATH}"
 export _PYTHON_HOST_PLATFORM=iphoneos-arm64

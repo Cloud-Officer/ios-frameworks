@@ -31,4 +31,4 @@ Edit `setup.sh` variables to define the versions required as you see fit.
 
 Simply run `setup.sh` to build everything. Dependencies are checked inside the script but homebrew is required initially and xcode as well.
 
-The output is under the `frameworks` and `python3.10` folders. The `versions.txt` summarizes the exact version for each package.
+The output is under the `frameworks` and `python3.11` folders. The `versions.txt` summarizes the exact version for each package.
