@@ -6,11 +6,11 @@
 | Python | babel | 2.11.0 | BSD License | Internationalization utilities | <https://babel.pocoo.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | beniget | 0.4.1 | BSD License | Extract semantic information about static Python code | <https://github.com/serge-sans-paille/beniget/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | build | 0.10.0 | MIT License | A simple, correct Python build frontend | <> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | certifi | 2022.12.7 | Mozilla Public License 2.0 (MPL 2.0) | Python package for providing Mozilla's CA Bundle. | <https://github.com/certifi/python-certifi> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | certifi | 2023.5.7 | Mozilla Public License 2.0 (MPL 2.0) | Python package for providing Mozilla's CA Bundle. | <https://github.com/certifi/python-certifi> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | charset-normalizer | 3.0.1 | MIT License | The Real First Universal Charset Detector | <https://github.com/Ousret/charset_normalizer> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | click | 8.1.3 | BSD License | Composable command line interface toolkit | <https://palletsprojects.com/p/click/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | cppy | 1.2.1 | BSD License |  | <https://github.com/nucleic/cppy> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | cython | 0.29.33 | Apache Software License | The Cython compiler for writing C extensions for the Python language. | <http://cython.org/> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | cython | 0.29.33 | Apache Software License | The Cython compiler for writing C extensions in the Python language. | <https://cython.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | docopt | 0.6.2 | MIT License | Pythonic argument parser, that will make you smile | <http://docopt.org> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | docutils | 0.19 | BSD License  GNU General Public License (GPL)  Python Software Foundation License | Docutils -- Python Documentation Utilities | <https://docutils.sourceforge.io/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | gast | 0.5.3 | BSD License | Python AST that abstracts the underlying Python version | <https://github.com/serge-sans-paille/gast/> | 2023-01-24 | Low | Dependency | Dependency |
@@ -30,7 +30,7 @@
 | Python | pythran | 0.12.1 | BSD License | Ahead of Time compiler for numeric kernels | <https://github.com/serge-sans-paille/pythran> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | pytz | 2022.7.1 | MIT License | World timezone definitions, modern and historical | <http://pythonhosted.org/pytz> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | requests | 2.31.0 | Apache Software License | Python HTTP for Humans. | <https://requests.readthedocs.io> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | scipy | 1.10.1 | BSD License | Fundamental algorithms for scientific computing in Python | <https://scipy.org/> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | scipy | 1.11.1 | BSD License | Fundamental algorithms for scientific computing in Python | <https://scipy.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | snowballstemmer | 2.2.0 | BSD License | This package provides 29 stemmers for 28 languages generated from Snowball algorithms. | <https://github.com/snowballstem/snowball> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | sphinx | 6.1.3 | BSD License | Python documentation generator | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | sphinxcontrib-applehelp | 1.0.3 | BSD License | sphinxcontrib-applehelp is a Sphinx extension which outputs Apple help books | <> | 2023-01-24 | Low | Dependency | Dependency |
