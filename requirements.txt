@@ -12,7 +12,7 @@ beniget==0.4.1
     # via pythran
 build==0.10.0
     # via pip-tools
-certifi==2022.12.7
+certifi==2023.7.22
     # via requests
 charset-normalizer==3.0.1
     # via requests
