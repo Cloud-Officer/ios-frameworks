@@ -10,7 +10,7 @@
 | Python | charset-normalizer | 3.0.1 | MIT License | The Real First Universal Charset Detector | <https://github.com/Ousret/charset_normalizer> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | click | 8.1.3 | BSD License | Composable command line interface toolkit | <https://palletsprojects.com/p/click/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | cppy | 1.2.1 | BSD License |  | <https://github.com/nucleic/cppy> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | cython | 0.29.33 | Apache Software License | The Cython compiler for writing C extensions for the Python language. | <http://cython.org/> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | cython | 0.29.33 | Apache Software License | The Cython compiler for writing C extensions in the Python language. | <https://cython.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | docopt | 0.6.2 | MIT License | Pythonic argument parser, that will make you smile | <http://docopt.org> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | docutils | 0.19 | BSD License  GNU General Public License (GPL)  Python Software Foundation License | Docutils -- Python Documentation Utilities | <https://docutils.sourceforge.io/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | gast | 0.5.3 | BSD License | Python AST that abstracts the underlying Python version | <https://github.com/serge-sans-paille/gast/> | 2023-01-24 | Low | Dependency | Dependency |
