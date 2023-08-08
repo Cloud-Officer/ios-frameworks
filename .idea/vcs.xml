@@ -2,21 +2,16 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sources/cython" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/numpy" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sources/pandas" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sources/pyemd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sources/numpy/doc/source/_static/scipy-mathjax" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sources/numpy/numpy/core/src/umath/svml" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/python-apple-support" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sources/pywt" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/scipy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/scipy/doc/source/_static/scipy-mathjax" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sources/scipy/doc/sphinxext" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/scipy/scipy/_lib/boost" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/scipy/scipy/_lib/highs" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/scipy/scipy/_lib/unuran" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/scipy/scipy/sparse/linalg/_propack/PROPACK" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sources/skimage" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/sources/sklearn" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sources/statsmodels" vcs="Git" />
   </component>
 </project>
