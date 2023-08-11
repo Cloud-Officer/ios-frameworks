@@ -65,7 +65,7 @@ pythran==0.13.1
     # via -r requirements.in
 requests==2.31.0
     # via sphinx
-scipy==1.10.1
+scipy==1.11.1
     # via -r requirements.in
 snowballstemmer==2.2.0
     # via sphinx

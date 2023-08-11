@@ -20,7 +20,7 @@ scikit_image=("skimage" "v0.19.3" "scikit-image")
 # shellcheck disable=SC2034
 scikit_learn=("sklearn" "1.2.2" "scikit-learn")
 # shellcheck disable=SC2034
-scipy=("scipy" "v1.10.1" "scipy")
+scipy=("scipy" "v1.11.1" "scipy")
 # shellcheck disable=SC2034
 statsmodels=("statsmodels" "v0.13.5" "statsmodels")
 

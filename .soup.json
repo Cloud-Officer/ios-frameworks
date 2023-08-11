@@ -14,7 +14,7 @@
   "babel": {
     "language": "Python",
     "package": "babel",
-    "version": "2.11.0",
+    "version": "2.12.1",
     "license": "BSD License",
     "description": "Internationalization utilities",
     "website": "https://babel.pocoo.org/",
@@ -50,7 +50,7 @@
   "certifi": {
     "language": "Python",
     "package": "certifi",
-    "version": "2022.12.7",
+    "version": "2023.7.22",
     "license": "Mozilla Public License 2.0 (MPL 2.0)",
     "description": "Python package for providing Mozilla's CA Bundle.",
     "website": "https://github.com/certifi/python-certifi",
@@ -62,7 +62,7 @@
   "charset-normalizer": {
     "language": "Python",
     "package": "charset-normalizer",
-    "version": "3.0.1",
+    "version": "3.2.0",
     "license": "MIT License",
     "description": "The Real First Universal Charset Detector",
     "website": "https://github.com/Ousret/charset_normalizer",
@@ -74,7 +74,7 @@
   "click": {
     "language": "Python",
     "package": "click",
-    "version": "8.1.3",
+    "version": "8.1.6",
     "license": "BSD License",
     "description": "Composable command line interface toolkit",
     "website": "https://palletsprojects.com/p/click/",
@@ -98,7 +98,7 @@
   "cython": {
     "language": "Python",
     "package": "cython",
-    "version": "0.29.33",
+    "version": "3.0.0",
     "license": "Apache Software License",
     "description": "The Cython compiler for writing C extensions in the Python language.",
     "website": "https://cython.org/",
@@ -122,7 +122,7 @@
   "docutils": {
     "language": "Python",
     "package": "docutils",
-    "version": "0.19",
+    "version": "0.20.1",
     "license": "BSD License  GNU General Public License (GPL)  Python Software Foundation License",
     "description": "Docutils -- Python Documentation Utilities",
     "website": "https://docutils.sourceforge.io/",
@@ -134,7 +134,7 @@
   "gast": {
     "language": "Python",
     "package": "gast",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "license": "BSD License",
     "description": "Python AST that abstracts the underlying Python version",
     "website": "https://github.com/serge-sans-paille/gast/",
@@ -182,7 +182,7 @@
   "markupsafe": {
     "language": "Python",
     "package": "markupsafe",
-    "version": "2.1.2",
+    "version": "2.1.3",
     "license": "BSD License",
     "description": "Safely add untrusted strings to HTML/XML markup.",
     "website": "https://palletsprojects.com/p/markupsafe/",
@@ -218,7 +218,7 @@
   "packaging": {
     "language": "Python",
     "package": "packaging",
-    "version": "23.0",
+    "version": "23.1",
     "license": "Apache Software License  BSD License",
     "description": "Core utilities for Python packages",
     "website": "",
@@ -242,7 +242,7 @@
   "pip-tools": {
     "language": "Python",
     "package": "pip-tools",
-    "version": "6.12.1",
+    "version": "7.2.0",
     "license": "BSD License",
     "description": "pip-tools keeps your pinned dependencies fresh.",
     "website": "",
@@ -266,7 +266,7 @@
   "pybind11": {
     "language": "Python",
     "package": "pybind11",
-    "version": "2.10.3",
+    "version": "2.11.1",
     "license": "BSD License",
     "description": "Seamless operability between C++11 and Python",
     "website": "https://github.com/pybind/pybind11",
@@ -278,7 +278,7 @@
   "pygments": {
     "language": "Python",
     "package": "pygments",
-    "version": "2.14.0",
+    "version": "2.16.1",
     "license": "BSD License",
     "description": "Pygments is a syntax highlighting package written in Python.",
     "website": "",
@@ -302,22 +302,10 @@
   "pythran": {
     "language": "Python",
     "package": "pythran",
-    "version": "0.12.1",
+    "version": "0.13.1",
     "license": "BSD License",
     "description": "Ahead of Time compiler for numeric kernels",
     "website": "https://github.com/serge-sans-paille/pythran",
-    "last_verified_at": "2023-01-24",
-    "risk_level": "Low",
-    "requirements": "Dependency",
-    "verification_reasoning": "Dependency"
-  },
-  "pytz": {
-    "language": "Python",
-    "package": "pytz",
-    "version": "2022.7.1",
-    "license": "MIT License",
-    "description": "World timezone definitions, modern and historical",
-    "website": "http://pythonhosted.org/pytz",
     "last_verified_at": "2023-01-24",
     "risk_level": "Low",
     "requirements": "Dependency",
@@ -338,7 +326,7 @@
   "scipy": {
     "language": "Python",
     "package": "scipy",
-    "version": "1.10.1",
+    "version": "1.11.1",
     "license": "BSD License",
     "description": "Fundamental algorithms for scientific computing in Python",
     "website": "https://scipy.org/",
@@ -362,7 +350,7 @@
   "sphinx": {
     "language": "Python",
     "package": "sphinx",
-    "version": "6.1.3",
+    "version": "7.1.2",
     "license": "BSD License",
     "description": "Python documentation generator",
     "website": "",
@@ -374,7 +362,7 @@
   "sphinxcontrib-applehelp": {
     "language": "Python",
     "package": "sphinxcontrib-applehelp",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "license": "BSD License",
     "description": "sphinxcontrib-applehelp is a Sphinx extension which outputs Apple help books",
     "website": "",
@@ -388,8 +376,8 @@
     "package": "sphinxcontrib-devhelp",
     "version": "1.0.2",
     "license": "BSD License",
-    "description": "sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp document.",
-    "website": "http://sphinx-doc.org/",
+    "description": "sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp documents",
+    "website": "",
     "last_verified_at": "2023-01-24",
     "risk_level": "Low",
     "requirements": "Dependency",
@@ -398,7 +386,7 @@
   "sphinxcontrib-htmlhelp": {
     "language": "Python",
     "package": "sphinxcontrib-htmlhelp",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "license": "BSD License",
     "description": "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files",
     "website": "",
@@ -424,8 +412,8 @@
     "package": "sphinxcontrib-qthelp",
     "version": "1.0.3",
     "license": "BSD License",
-    "description": "sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp document.",
-    "website": "http://sphinx-doc.org/",
+    "description": "sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp documents",
+    "website": "",
     "last_verified_at": "2023-01-24",
     "risk_level": "Low",
     "requirements": "Dependency",
@@ -436,8 +424,8 @@
     "package": "sphinxcontrib-serializinghtml",
     "version": "1.1.5",
     "license": "BSD License",
-    "description": "sphinxcontrib-serializinghtml is a sphinx extension which outputs \"serialized\" HTML files (json and pickle).",
-    "website": "http://sphinx-doc.org/",
+    "description": "sphinxcontrib-serializinghtml is a sphinx extension which outputs \"serialized\" HTML files (json and pickle)",
+    "website": "",
     "last_verified_at": "2023-01-24",
     "risk_level": "Low",
     "requirements": "Dependency",
@@ -446,7 +434,7 @@
   "urllib3": {
     "language": "Python",
     "package": "urllib3",
-    "version": "1.26.14",
+    "version": "2.0.4",
     "license": "MIT License",
     "description": "HTTP library with thread-safe connection pooling, file post, and more.",
     "website": "",
@@ -458,7 +446,7 @@
   "wheel": {
     "language": "Python",
     "package": "wheel",
-    "version": "0.38.4",
+    "version": "0.41.1",
     "license": "MIT License",
     "description": "A built-package format for Python",
     "website": "",
