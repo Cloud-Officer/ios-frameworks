@@ -455,6 +455,18 @@
     "requirements": "Dependency",
     "verification_reasoning": "Dependency"
   },
+  "catboost": {
+    "language": "Python",
+    "package": "catboost",
+    "version": "1.2.1",
+    "license": "Apache License, Version 2.0",
+    "description": "CatBoost Python Package",
+    "website": "https://catboost.ai",
+    "last_verified_at": "2023-09-09",
+    "risk_level": "Low",
+    "requirements": "Dependency",
+    "verification_reasoning": "Dependency"
+  },
   "joblib": {
     "language": "Python",
     "package": "joblib",
