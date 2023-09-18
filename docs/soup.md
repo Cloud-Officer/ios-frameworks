@@ -18,7 +18,7 @@
 | Python | imagesize | 1.4.1 | MIT License | Getting image size from png/jpeg/jpeg2000/gif file | <https://github.com/shibukawa/imagesize_py> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | jinja2 | 3.1.2 | BSD License | A very fast and expressive template engine. | <https://palletsprojects.com/p/jinja/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | markupsafe | 2.1.3 | BSD License | Safely add untrusted strings to HTML/XML markup. | <https://palletsprojects.com/p/markupsafe/> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | numpy | 1.24.2 | BSD License | Fundamental package for array computing in Python | <https://www.numpy.org> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | numpy | 1.24.2 | BSD License | Fundamental package for array computing in Python | <https://numpy.org> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | openstep-parser | 1.5.4 | BSD License | OpenStep plist reader into python objects | <http://github.com/kronenthaler/openstep-parser> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | packaging | 23.1 | Apache Software License  BSD License | Core utilities for Python packages | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | pbxproj | 3.5.0 | MIT License | XCode Project manipulation library for Python | <http://github.com/kronenthaler/mod-pbxproj> | 2023-01-24 | Low | Dependency | Dependency |
@@ -43,5 +43,6 @@
 | Python | catboost | 1.2.1 | Apache License, Version 2.0 | CatBoost Python Package | <https://catboost.ai> | 2023-09-09 | Low | Dependency | Dependency |
 | Python | joblib | 1.2.0 | BSD License | Lightweight pipelining with Python functions | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | threadpoolctl | 3.1.0 | BSD License | threadpoolctl | <https://github.com/joblib/threadpoolctl> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | six | 1.15.0 | MIT License | Python 2 and 3 compatibility utilities | <https://github.com/benjaminp/six> | 2023-09-18 | Low | Dependency | Dependency |
 | Python | pip |  | MIT License | The PyPA recommended tool for installing Python packages. | <https://pip.pypa.io/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | setuptools |  | MIT License | Easily download, build, install, upgrade, and uninstall Python packages | <https://github.com/pypa/setuptools> | 2023-01-24 | Low | Dependency | Dependency |

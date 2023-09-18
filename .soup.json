@@ -197,7 +197,7 @@
     "version": "1.24.2",
     "license": "BSD License",
     "description": "Fundamental package for array computing in Python",
-    "website": "https://www.numpy.org",
+    "website": "https://numpy.org",
     "last_verified_at": "2023-01-24",
     "risk_level": "Low",
     "requirements": "Dependency",
@@ -487,6 +487,18 @@
     "description": "threadpoolctl",
     "website": "https://github.com/joblib/threadpoolctl",
     "last_verified_at": "2023-01-24",
+    "risk_level": "Low",
+    "requirements": "Dependency",
+    "verification_reasoning": "Dependency"
+  },
+  "six": {
+    "language": "Python",
+    "package": "six",
+    "version": "1.15.0",
+    "license": "MIT License",
+    "description": "Python 2 and 3 compatibility utilities",
+    "website": "https://github.com/benjaminp/six",
+    "last_verified_at": "2023-09-18",
     "risk_level": "Low",
     "requirements": "Dependency",
     "verification_reasoning": "Dependency"
