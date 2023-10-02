@@ -6,7 +6,7 @@ set -e
 # Python package name, package version tag, package name alias
 
 # shellcheck disable=SC2034
-numpy=("numpy" "v1.24.2" "numpy")
+numpy=("numpy" "v1.26.0" "numpy")
 # shellcheck disable=SC2034
 cython=("Cython" "0.29.33" "Cython")
 # shellcheck disable=SC2034
@@ -18,9 +18,9 @@ pywavelets=("pywt" "v1.4.1" "PyWavelets")
 # shellcheck disable=SC2034
 scikit_image=("skimage" "v0.19.3" "scikit-image")
 # shellcheck disable=SC2034
-scikit_learn=("sklearn" "1.2.2" "scikit-learn")
+scikit_learn=("sklearn" "1.3.1" "scikit-learn")
 # shellcheck disable=SC2034
-scipy=("scipy" "v1.11.1" "scipy")
+scipy=("scipy" "v1.11.3" "scipy")
 # shellcheck disable=SC2034
 statsmodels=("statsmodels" "v0.13.5" "statsmodels")
 

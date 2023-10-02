@@ -1,9 +1,9 @@
 Cython>=0.29.33
 pbxproj>=3.5.0
 cppy>=1.2.1
-numpy==1.24.2
+numpy==1.26.0
 pip-tools>=6.12.1
 pybind11>=2.10.3
 pythran>=0.12.1
-scipy==1.11.1
+scipy==1.11.3
 sphinx>=6.1.3
