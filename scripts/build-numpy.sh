@@ -14,7 +14,7 @@ if ! [ -d "build" ]; then
   git reset --hard
   git checkout "${2}"
   cp -f "${BASE_DIR}/numpy/npy_config.h" numpy/core/src/common/
-  cp -f "${BASE_DIR}/numpy/npy_common.h" numpy/core/include/numpy/
+  #cp -f "${BASE_DIR}/numpy/npy_common.h" numpy/core/include/numpy/
   cp -f "${BASE_DIR}/numpy/site.cfg" .
   sed -i '' "s!^library_dirs = .*!library_dirs = $(brew --prefix openblas)/lib!g" site.cfg
   sed -i '' "s!^include_dirs = .*!include_dirs = $(brew --prefix openblas)/include!g" site.cfg

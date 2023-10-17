@@ -20,7 +20,7 @@ scikit_image=("skimage" "v0.19.3" "scikit-image")
 # shellcheck disable=SC2034
 scikit_learn=("sklearn" "1.3.1" "scikit-learn")
 # shellcheck disable=SC2034
-scipy=("scipy" "v1.11.3" "scipy")
+scipy=("scipy" "v1.11.1" "scipy")
 # shellcheck disable=SC2034
 statsmodels=("statsmodels" "v0.13.5" "statsmodels")
 
@@ -106,12 +106,12 @@ mv "${FRAMEWORKS_DIR}/VERSIONS" "${VERSION_FILE}"
 echo "---------------------" >> "${VERSION_FILE}"
 popd
 
-rm "${PYTHON_DIR}/lib-dynload"/*-iphonesimulator.so
+rm "${PYTHON_DIR}/lib-dynload"/*-iphonesimulator.dylib
 
-for file in "${PYTHON_DIR}/lib-dynload"/*.so; do
-  lipo "${file}" -thin arm64 -output "${file/.so/.dylib}"
-  rm "${file}"
-done
+#for file in "${PYTHON_DIR}/lib-dynload"/*.so; do
+#  lipo "${file}" -thin arm64 -output "${file/.so/.dylib}"
+#  rm "${file}"
+#done
 
 make-frameworks.sh --bundle-identifier "org" --bundle-name "python" --bundle-version "${PYTHON_APPLE_SUPPORT_VERSION}" --input-dir "${PYTHON_DIR}/lib-dynload" --output-dir "${FRAMEWORKS_DIR}"
 rm -rf "${PYTHON_DIR}/lib-dynload"
@@ -190,6 +190,7 @@ done
 popd
 
 find "${SOURCES_DIR}" -name '*.egg-info' -exec cp -rf {} "${SITE_PACKAGES_DIR}" \;
+find "${SITE_PACKAGES_DIR}" -name '*.a' -delete
 find "${SITE_PACKAGES_DIR}" -name '*.dylib' -delete
 find "${SITE_PACKAGES_DIR}" -name '*.so' -delete
 

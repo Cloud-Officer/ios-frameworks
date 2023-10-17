@@ -46,9 +46,9 @@ for arg in sys.argv:
 
 if is_just_c_not_cpp:
     if "scipy/ndimage/src/ni_morphology.c" in " ".join(new_args):
-        new_args.append("-std=c11")
+        new_args.append("-std=c17")
 else:
-    new_args.append("-std=gnu++11")
+    new_args.append("-std=gnu++17")
 
 command = shlex.join(new_args)
 print(command)
