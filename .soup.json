@@ -14,7 +14,7 @@
   "babel": {
     "language": "Python",
     "package": "babel",
-    "version": "2.12.1",
+    "version": "2.13.0",
     "license": "BSD License",
     "description": "Internationalization utilities",
     "website": "https://babel.pocoo.org/",
@@ -38,7 +38,7 @@
   "build": {
     "language": "Python",
     "package": "build",
-    "version": "0.10.0",
+    "version": "1.0.3",
     "license": "MIT License",
     "description": "A simple, correct Python build frontend",
     "website": "",
@@ -62,7 +62,7 @@
   "charset-normalizer": {
     "language": "Python",
     "package": "charset-normalizer",
-    "version": "3.2.0",
+    "version": "3.3.0",
     "license": "MIT License",
     "description": "The Real First Universal Charset Detector",
     "website": "https://github.com/Ousret/charset_normalizer",
@@ -74,11 +74,23 @@
   "click": {
     "language": "Python",
     "package": "click",
-    "version": "8.1.6",
+    "version": "8.1.7",
     "license": "BSD License",
     "description": "Composable command line interface toolkit",
     "website": "https://palletsprojects.com/p/click/",
     "last_verified_at": "2023-01-24",
+    "risk_level": "Low",
+    "requirements": "Dependency",
+    "verification_reasoning": "Dependency"
+  },
+  "cloudpickle": {
+    "language": "Python",
+    "package": "cloudpickle",
+    "version": "2.2.1",
+    "license": "BSD License",
+    "description": "Pickler class to extend the standard pickle.Pickler functionality",
+    "website": "https://github.com/cloudpipe/cloudpickle",
+    "last_verified_at": "2023-10-17",
     "risk_level": "Low",
     "requirements": "Dependency",
     "verification_reasoning": "Dependency"
@@ -131,6 +143,18 @@
     "requirements": "Dependency",
     "verification_reasoning": "Dependency"
   },
+  "doit": {
+    "language": "Python",
+    "package": "doit",
+    "version": "0.36.0",
+    "license": "MIT License",
+    "description": "doit - Automation Tool",
+    "website": "http://pydoit.org",
+    "last_verified_at": "2023-10-17",
+    "risk_level": "Low",
+    "requirements": "Dependency",
+    "verification_reasoning": "Dependency"
+  },
   "gast": {
     "language": "Python",
     "package": "gast",
@@ -167,6 +191,18 @@
     "requirements": "Dependency",
     "verification_reasoning": "Dependency"
   },
+  "importlib-metadata": {
+    "language": "Python",
+    "package": "importlib-metadata",
+    "version": "6.8.0",
+    "license": "Apache Software License",
+    "description": "Read metadata from Python packages",
+    "website": "https://github.com/python/importlib_metadata",
+    "last_verified_at": "2023-10-17",
+    "risk_level": "Low",
+    "requirements": "Dependency",
+    "verification_reasoning": "Dependency"
+  },
   "jinja2": {
     "language": "Python",
     "package": "jinja2",
@@ -194,7 +230,7 @@
   "numpy": {
     "language": "Python",
     "package": "numpy",
-    "version": "1.24.2",
+    "version": "1.26.0",
     "license": "BSD License",
     "description": "Fundamental package for array computing in Python",
     "website": "https://numpy.org",
@@ -218,7 +254,7 @@
   "packaging": {
     "language": "Python",
     "package": "packaging",
-    "version": "23.1",
+    "version": "23.2",
     "license": "Apache Software License  BSD License",
     "description": "Core utilities for Python packages",
     "website": "",
@@ -242,7 +278,7 @@
   "pip-tools": {
     "language": "Python",
     "package": "pip-tools",
-    "version": "7.2.0",
+    "version": "7.3.0",
     "license": "BSD License",
     "description": "pip-tools keeps your pinned dependencies fresh.",
     "website": "",
@@ -275,6 +311,18 @@
     "requirements": "Dependency",
     "verification_reasoning": "Dependency"
   },
+  "pydevtool": {
+    "language": "Python",
+    "package": "pydevtool",
+    "version": "0.3.0",
+    "license": "MIT License",
+    "description": "CLI dev tools powered by pydoit",
+    "website": "https://github.com/pydoit/pydevtool",
+    "last_verified_at": "2023-10-17",
+    "risk_level": "Low",
+    "requirements": "Dependency",
+    "verification_reasoning": "Dependency"
+  },
   "pygments": {
     "language": "Python",
     "package": "pygments",
@@ -302,7 +350,7 @@
   "pythran": {
     "language": "Python",
     "package": "pythran",
-    "version": "0.13.1",
+    "version": "0.14.0",
     "license": "BSD License",
     "description": "Ahead of Time compiler for numeric kernels",
     "website": "https://github.com/serge-sans-paille/pythran",
@@ -350,7 +398,7 @@
   "sphinx": {
     "language": "Python",
     "package": "sphinx",
-    "version": "7.1.2",
+    "version": "7.2.6",
     "license": "BSD License",
     "description": "Python documentation generator",
     "website": "",
@@ -362,7 +410,7 @@
   "sphinxcontrib-applehelp": {
     "language": "Python",
     "package": "sphinxcontrib-applehelp",
-    "version": "1.0.4",
+    "version": "1.0.7",
     "license": "BSD License",
     "description": "sphinxcontrib-applehelp is a Sphinx extension which outputs Apple help books",
     "website": "",
@@ -374,7 +422,7 @@
   "sphinxcontrib-devhelp": {
     "language": "Python",
     "package": "sphinxcontrib-devhelp",
-    "version": "1.0.2",
+    "version": "1.0.5",
     "license": "BSD License",
     "description": "sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp documents",
     "website": "",
@@ -386,7 +434,7 @@
   "sphinxcontrib-htmlhelp": {
     "language": "Python",
     "package": "sphinxcontrib-htmlhelp",
-    "version": "2.0.1",
+    "version": "2.0.4",
     "license": "BSD License",
     "description": "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files",
     "website": "",
@@ -410,7 +458,7 @@
   "sphinxcontrib-qthelp": {
     "language": "Python",
     "package": "sphinxcontrib-qthelp",
-    "version": "1.0.3",
+    "version": "1.0.6",
     "license": "BSD License",
     "description": "sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp documents",
     "website": "",
@@ -422,7 +470,7 @@
   "sphinxcontrib-serializinghtml": {
     "language": "Python",
     "package": "sphinxcontrib-serializinghtml",
-    "version": "1.1.5",
+    "version": "1.1.9",
     "license": "BSD License",
     "description": "sphinxcontrib-serializinghtml is a sphinx extension which outputs \"serialized\" HTML files (json and pickle)",
     "website": "",
@@ -434,7 +482,7 @@
   "urllib3": {
     "language": "Python",
     "package": "urllib3",
-    "version": "2.0.4",
+    "version": "2.0.6",
     "license": "MIT License",
     "description": "HTTP library with thread-safe connection pooling, file post, and more.",
     "website": "",
@@ -446,11 +494,23 @@
   "wheel": {
     "language": "Python",
     "package": "wheel",
-    "version": "0.41.1",
+    "version": "0.41.2",
     "license": "MIT License",
     "description": "A built-package format for Python",
     "website": "",
     "last_verified_at": "2023-01-24",
+    "risk_level": "Low",
+    "requirements": "Dependency",
+    "verification_reasoning": "Dependency"
+  },
+  "zipp": {
+    "language": "Python",
+    "package": "zipp",
+    "version": "3.17.0",
+    "license": "MIT License",
+    "description": "Backport of pathlib-compatible object wrapper for zip files",
+    "website": "https://github.com/jaraco/zipp",
+    "last_verified_at": "2023-10-17",
     "risk_level": "Low",
     "requirements": "Dependency",
     "verification_reasoning": "Dependency"
