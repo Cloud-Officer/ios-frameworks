@@ -18,7 +18,7 @@ charset-normalizer==3.3.0
     # via requests
 click==8.1.7
     # via pip-tools
-cloudpickle==2.2.1
+cloudpickle==3.0.0
     # via doit
 cppy==1.2.1
     # via -r requirements.in
@@ -55,7 +55,7 @@ packaging==23.2
     # via
     #   build
     #   sphinx
-pbxproj==3.5.0
+pbxproj==4.0.0
     # via -r requirements.in
 pip-tools==7.3.0
     # via -r requirements.in
@@ -97,7 +97,7 @@ sphinxcontrib-qthelp==1.0.6
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.9
     # via sphinx
-urllib3==2.0.6
+urllib3==2.0.7
     # via requests
 wheel==0.41.2
     # via pip-tools
