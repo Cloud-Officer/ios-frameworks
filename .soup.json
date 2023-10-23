@@ -86,7 +86,7 @@
   "cloudpickle": {
     "language": "Python",
     "package": "cloudpickle",
-    "version": "2.2.1",
+    "version": "3.0.0",
     "license": "BSD License",
     "description": "Pickler class to extend the standard pickle.Pickler functionality",
     "website": "https://github.com/cloudpipe/cloudpickle",
@@ -266,7 +266,7 @@
   "pbxproj": {
     "language": "Python",
     "package": "pbxproj",
-    "version": "3.5.0",
+    "version": "4.0.0",
     "license": "MIT License",
     "description": "XCode Project manipulation library for Python",
     "website": "http://github.com/kronenthaler/mod-pbxproj",
@@ -482,7 +482,7 @@
   "urllib3": {
     "language": "Python",
     "package": "urllib3",
-    "version": "2.0.6",
+    "version": "2.0.7",
     "license": "MIT License",
     "description": "HTTP library with thread-safe connection pooling, file post, and more.",
     "website": "",

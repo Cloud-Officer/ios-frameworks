@@ -9,7 +9,7 @@
 | Python | certifi | 2023.7.22 | Mozilla Public License 2.0 (MPL 2.0) | Python package for providing Mozilla's CA Bundle. | <https://github.com/certifi/python-certifi> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | charset-normalizer | 3.3.0 | MIT License | The Real First Universal Charset Detector | <https://github.com/Ousret/charset_normalizer> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | click | 8.1.7 | BSD License | Composable command line interface toolkit | <https://palletsprojects.com/p/click/> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | cloudpickle | 2.2.1 | BSD License | Pickler class to extend the standard pickle.Pickler functionality | <https://github.com/cloudpipe/cloudpickle> | 2023-10-17 | Low | Dependency | Dependency |
+| Python | cloudpickle | 3.0.0 | BSD License | Pickler class to extend the standard pickle.Pickler functionality | <https://github.com/cloudpipe/cloudpickle> | 2023-10-17 | Low | Dependency | Dependency |
 | Python | cppy | 1.2.1 | BSD License |  | <https://github.com/nucleic/cppy> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | cython | 3.0.0 | Apache Software License | The Cython compiler for writing C extensions in the Python language. | <https://cython.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | docopt | 0.6.2 | MIT License | Pythonic argument parser, that will make you smile | <http://docopt.org> | 2023-01-24 | Low | Dependency | Dependency |
@@ -24,7 +24,7 @@
 | Python | numpy | 1.26.0 | BSD License | Fundamental package for array computing in Python | <https://numpy.org> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | openstep-parser | 1.5.4 | BSD License | OpenStep plist reader into python objects | <http://github.com/kronenthaler/openstep-parser> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | packaging | 23.2 | Apache Software License  BSD License | Core utilities for Python packages | <> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | pbxproj | 3.5.0 | MIT License | XCode Project manipulation library for Python | <http://github.com/kronenthaler/mod-pbxproj> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | pbxproj | 4.0.0 | MIT License | XCode Project manipulation library for Python | <http://github.com/kronenthaler/mod-pbxproj> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | pip-tools | 7.3.0 | BSD License | pip-tools keeps your pinned dependencies fresh. | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | ply | 3.11 | BSD | Python Lex & Yacc | <http://www.dabeaz.com/ply/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | pybind11 | 2.11.1 | BSD License | Seamless operability between C++11 and Python | <https://github.com/pybind/pybind11> | 2023-01-24 | Low | Dependency | Dependency |
@@ -42,7 +42,7 @@
 | Python | sphinxcontrib-jsmath | 1.0.1 | BSD License | A sphinx extension which renders display math in HTML via JavaScript | <http://sphinx-doc.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | sphinxcontrib-qthelp | 1.0.6 | BSD License | sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp documents | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | sphinxcontrib-serializinghtml | 1.1.9 | BSD License | sphinxcontrib-serializinghtml is a sphinx extension which outputs "serialized" HTML files (json and pickle) | <> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | urllib3 | 2.0.6 | MIT License | HTTP library with thread-safe connection pooling, file post, and more. | <> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | urllib3 | 2.0.7 | MIT License | HTTP library with thread-safe connection pooling, file post, and more. | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | wheel | 0.41.2 | MIT License | A built-package format for Python | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | zipp | 3.17.0 | MIT License | Backport of pathlib-compatible object wrapper for zip files | <https://github.com/jaraco/zipp> | 2023-10-17 | Low | Dependency | Dependency |
 | Python | joblib | 1.2.0 | BSD License | Lightweight pipelining with Python functions | <> | 2023-01-24 | Low | Dependency | Dependency |
