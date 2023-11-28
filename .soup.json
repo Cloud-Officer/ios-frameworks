@@ -173,7 +173,7 @@
     "version": "3.4",
     "license": "BSD License",
     "description": "Internationalized Domain Names in Applications (IDNA)",
-    "website": null,
+    "website": "",
     "last_verified_at": "2023-01-24",
     "risk_level": "Low",
     "requirements": "Dependency",
