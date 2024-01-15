@@ -2,7 +2,7 @@
 
 | **Language** | **Package** | **Version** | **License** | **Description** | **Website** | **Last Verified** | **Risk Level** | **Requirements** | **Verification Reasoning** |
 | :---: | :--- | :---: | :---: | :--- | :--- | :---: | :---: | :--- | :--- |
-| Python | alabaster | 0.7.13 | BSD License | A configurable sidebar-enabled Sphinx theme | <https://alabaster.readthedocs.io> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | alabaster | 0.7.13 | BSD License | A light, configurable Sphinx theme | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | babel | 2.13.0 | BSD License | Internationalization utilities | <https://babel.pocoo.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | beniget | 0.4.1 | BSD License | Extract semantic information about static Python code | <https://github.com/serge-sans-paille/beniget/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | build | 1.0.3 | MIT License | A simple, correct Python build frontend | <> | 2023-01-24 | Low | Dependency | Dependency |
@@ -31,7 +31,7 @@
 | Python | pydevtool | 0.3.0 | MIT License | CLI dev tools powered by pydoit | <https://github.com/pydoit/pydevtool> | 2023-10-17 | Low | Dependency | Dependency |
 | Python | pygments | 2.16.1 | BSD License | Pygments is a syntax highlighting package written in Python. | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | pyproject-hooks | 1.0.0 | MIT License | Wrappers to call pyproject.toml-based build backend hooks. | <> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | pythran | 0.14.0 | BSD License | Ahead of Time compiler for numeric kernels | <https://github.com/serge-sans-paille/pythran> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | pythran | 0.14.0 | BSD License | Ahead of Time compiler for numeric kernels | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | requests | 2.31.0 | Apache Software License | Python HTTP for Humans. | <https://requests.readthedocs.io> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | scipy | 1.11.1 | BSD License | Fundamental algorithms for scientific computing in Python | <https://scipy.org/> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | snowballstemmer | 2.2.0 | BSD License | This package provides 29 stemmers for 28 languages generated from Snowball algorithms. | <https://github.com/snowballstem/snowball> | 2023-01-24 | Low | Dependency | Dependency |
