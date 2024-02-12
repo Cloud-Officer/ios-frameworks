@@ -545,7 +545,7 @@
     "version": null,
     "license": "MIT License",
     "description": "The PyPA recommended tool for installing Python packages.",
-    "website": "https://pip.pypa.io/",
+    "website": "",
     "last_verified_at": "2023-01-24",
     "risk_level": "Low",
     "requirements": "Dependency",

@@ -47,5 +47,5 @@
 | Python | zipp | 3.17.0 | MIT License | Backport of pathlib-compatible object wrapper for zip files | <https://github.com/jaraco/zipp> | 2023-10-17 | Low | Dependency | Dependency |
 | Python | joblib | 1.2.0 | BSD License | Lightweight pipelining with Python functions | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | threadpoolctl | 3.1.0 | BSD License | threadpoolctl | <https://github.com/joblib/threadpoolctl> | 2023-01-24 | Low | Dependency | Dependency |
-| Python | pip |  | MIT License | The PyPA recommended tool for installing Python packages. | <https://pip.pypa.io/> | 2023-01-24 | Low | Dependency | Dependency |
+| Python | pip |  | MIT License | The PyPA recommended tool for installing Python packages. | <> | 2023-01-24 | Low | Dependency | Dependency |
 | Python | setuptools |  | MIT License | Easily download, build, install, upgrade, and uninstall Python packages | <https://github.com/pypa/setuptools> | 2023-01-24 | Low | Dependency | Dependency |
