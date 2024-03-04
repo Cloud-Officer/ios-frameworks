@@ -8,10 +8,8 @@
 .github/                 @ydesgagn
 .gitignore               @ydesgagn
 .gitmodules              @ydesgagn
-.soup.json               @ydesgagn
 codeowners               @ydesgagn
 readme.md                @ydesgagn
 bin/                     @ydesgagn
-docs/                    @ydesgagn
 *.sh                     @ydesgagn
 Dockerfile               @ydesgagn
