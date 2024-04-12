@@ -34,7 +34,7 @@ gast==0.5.4
     # via
     #   beniget
     #   pythran
-idna==3.4
+idna==3.7
     # via requests
 imagesize==1.4.1
     # via sphinx
